@@ -1,35 +1,207 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная страница</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SCD — Sport Club Digital</title>
+    <meta name="description" content="SCD — A digital ecosystem for fitness & wellness: avatar evolution, coaches' monetization, and a metaverse‑ready vision." />
+    <!-- Tailwind via CDN (for static hosting) -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-            background-color: #f0f0f0;
+        :root{
+            --scd-teal:#47C4EA; /* primary */
+            --scd-blue:#2A8CBF; /* secondary */
+            --scd-navy:#162E35; /* deep */
+            --scd-base:#111E22; /* background */
         }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #666;
-        }
-        a {
-            color: #0077cc;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+        .scd-gradient{background-image:linear-gradient(135deg,var(--scd-teal),var(--scd-blue),var(--scd-navy));}
+        .scd-soft{background-image:linear-gradient(135deg,rgba(71,196,234,.10),rgba(42,140,191,.10),rgba(22,46,53,.10));}
+        .neon-bg::before{content:'';position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at center, rgba(71,196,234,.14), rgba(22,46,53,.08), transparent 60%);}
+        .neon-bg::after{content:'';position:fixed;inset:0;z-index:-1;opacity:.06; background-image:linear-gradient(rgba(255,255,255,.4) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.4) 1px, transparent 1px); background-size:40px 40px;}
+        .glow{position:relative}
+        .glow::before{content:'';position:absolute;inset:0;border-radius:1rem;filter:blur(24px);z-index:-1;background-image:linear-gradient(90deg, rgba(71,196,234,.20), rgba(42,140,191,.10), rgba(22,46,53,.20));}
+        [data-animate]{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+        .inview{opacity:1 !important; transform:translateY(0)!important}
+        .btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:.8rem;padding:.7rem 1rem;font-weight:600}
+        .btn-primary{background:#fff;color:#000}
+        .btn-outline{border:1px solid rgba(255,255,255,.2)}
+        .chip{display:inline-flex;gap:.4rem;align-items:center;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);padding:.3rem .6rem;border-radius:999px;font-size:.75rem;color:rgba(255,255,255,.8)}
     </style>
 </head>
-<body>
-<h1>Welcome to the SportClubDigital (SCD) website</h1>
+<body class="neon-bg bg-[color:var(--scd-base)] text-white antialiased selection:bg-[color:var(--scd-teal)]/30">
 
-<p><a href="/privacy">Privacy Policy</a></p>
-<p><a href="/terms">Term of Use</a></p>
+<!-- Hero -->
+<section class="relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
+        <div data-animate>
+            <span class="chip mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M11.72 2.53a.75.75 0 01.56 0l8.25 3.43a.75.75 0 01.47.69v7.1a4.5 4.5 0 01-3.02 4.25l-5.7 2.05a.75.75 0 01-.5 0l-5.7-2.05A4.5 4.5 0 012.99 13.75v-7.1a.75.75 0 01.47-.69l8.26-3.43z"/></svg> Where Wellness Meets Innovation</span>
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight">A digital ecosystem for fitness &amp; wellness</h1>
+            <p class="mt-4 text-white/70 max-w-prose">SCD unifies training, nutrition, and your virtual avatar. From first steps to your own digital club — grow, monetize your expertise, and inspire others.</p>
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+                <a class="btn btn-primary glow" href="#cta">Try it now
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                </a>
+                <a class="btn btn-outline hover:bg-white/10" href="#">Watch demo</a>
+            </div>
+            <div class="mt-6 flex items-center gap-6 text-xs text-white/60">
+                <span class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 6.75A2.25 2.25 0 016.75 4.5h10.5A2.25 2.25 0 0119.5 6.75v10.5A2.25 2.25 0 0117.25 19.5H6.75A2.25 2.25 0 014.5 17.25V6.75z"/></svg> Data security</span>
+                <span class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z"/></svg> Progress tracking</span>
+                <span class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v2H3V3zm0 6h18v2H3V9zm0 6h18v2H3v-2z"/></svg> Real‑world shopping</span>
+            </div>
+        </div>
+        <div data-animate class="relative">
+            <div class="aspect-[4/3] rounded-2xl border border-white/10 scd-soft p-1">
+                <div class="h-full w-full rounded-xl bg-black/40 grid place-items-center">
+                    <div class="h-40 w-40 rounded-full scd-gradient shadow-[0_0_40px_-10px_rgba(71,196,234,.6)] animate-pulse"></div>
+                </div>
+            </div>
+            <div class="absolute -left-6 -top-6">
+                <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 glow">
+                    <div class="text-xs text-white/60">Active users</div>
+                    <div class="text-lg font-semibold">12.4K</div>
+                </div>
+            </div>
+            <div class="absolute right-0 -bottom-6">
+                <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 glow">
+                    <div class="text-xs text-white/60">Clubs opened</div>
+                    <div class="text-lg font-semibold">1,280</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission -->
+<section id="mission" class="max-w-6xl mx-auto px-4 py-16">
+    <div data-animate>
+        <h2 class="text-3xl md:text-4xl font-semibold">Mission</h2>
+        <p class="mt-3 text-white/70 max-w-3xl">Build a next‑gen wellness &amp; fitness platform — with an interactive business simulator and a living digital twin that mirrors real progress.</p>
+        <div class="mt-8 grid md:grid-cols-3 gap-5">
+            <div class="glow rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div class="flex items-center gap-2 text-white text-lg font-semibold"><span class="h-2.5 w-2.5 rounded-full scd-gradient inline-block"></span> 24/7 tracking</div>
+                <p class="mt-2 text-white/70">Every step, workout, and nutrition choice is captured — your Avatar evolves in real time.</p>
+            </div>
+            <div class="glow rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div class="flex items-center gap-2 text-white text-lg font-semibold"><span class="h-2.5 w-2.5 rounded-full scd-gradient inline-block"></span> Ecosystem</div>
+                <p class="mt-2 text-white/70">Strength, yoga, rehab and dozens of disciplines — united in one place.</p>
+            </div>
+            <div class="glow rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div class="flex items-center gap-2 text-white text-lg font-semibold"><span class="h-2.5 w-2.5 rounded-full scd-gradient inline-block"></span> Growth</div>
+                <p class="mt-2 text-white/70">From personal goals to a coach’s scalable business — without barriers.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- For Whom -->
+<section id="audience" class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-6">
+    <div data-animate class="glow rounded-2xl border border-white/10 bg-white/5 p-6">
+        <div class="text-white/70 text-sm uppercase tracking-widest">From beginners to pros</div>
+        <h3 class="mt-1 text-2xl font-semibold">Users</h3>
+        <p class="mt-2 text-white/70">SCD blends body and mind, tracks progress, fuels motivation, and opens the future of wellness.</p>
+    </div>
+    <div data-animate class="glow rounded-2xl border border-white/10 bg-white/5 p-6">
+        <div class="text-white/70 text-sm uppercase tracking-widest">Coaches, dietitians, educators</div>
+        <h3 class="mt-1 text-2xl font-semibold">Coaches &amp; experts</h3>
+        <p class="mt-2 text-white/70">Earn more, scale clients, and build your own programs. An ecosystem for those who lead and inspire.</p>
+    </div>
+</section>
+
+<!-- Solutions -->
+<section id="solutions" class="max-w-6xl mx-auto px-4 py-16">
+    <div data-animate>
+        <h2 class="text-3xl md:text-4xl font-semibold">How we solve it</h2>
+        <div class="mt-8 grid md:grid-cols-3 gap-5">
+            <div class="glow rounded-2xl border border-white/10 bg-white/5 p-6 h-full">
+                <div class="flex items-center gap-3 text-white text-lg font-semibold"><span class="h-2.5 w-2.5 rounded-full scd-gradient inline-block"></span> Avatar evolution</div>
+                <p class="mt-2 text-white/70">Every step, workout, and nutrition choice is tracked — your Avatar mirrors real progress and guides you to goals.</p>
+            </div>
+            <div class="glow rounded-2xl border border-white/10 bg-white/5 p-6 h-full">
+                <div class="flex items-center gap-3 text-white text-lg font-semibold"><span class="h-2.5 w-2.5 rounded-full scd-gradient inline-block"></span> Your own fitness club</div>
+                <p class="mt-2 text-white/70">Launch a club inside SCD with no upfront spend. Coach, hire, expand, and compete — at your pace.</p>
+            </div>
+            <div class="glow rounded-2xl border border-white/10 bg-white/5 p-6 h-full">
+                <div class="flex items-center gap-3 text-white text-lg font-semibold"><span class="h-2.5 w-2.5 rounded-full scd-gradient inline-block"></span> One ecosystem</div>
+                <p class="mt-2 text-white/70">Dozens of disciplines — strength, yoga, health &amp; rehab — within a single platform.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vision -->
+<section id="vision" class="max-w-6xl mx-auto px-4 py-16">
+    <div data-animate class="glow rounded-2xl border border-white/10 bg-white/5 p-8 md:p-10 relative overflow-hidden">
+        <div class="absolute -right-20 -top-20 h-72 w-72 rounded-full scd-gradient opacity-30"></div>
+        <h2 class="text-3xl md:text-4xl font-semibold">The big vision</h2>
+        <p class="mt-3 text-white/70 max-w-3xl">Bring the SCD world into the metaverse — a living Earth simulator. Your avatar is your digital self: looks, shape, and progress reflect reality. Any choice — from apparel to nutrition — is available for your avatar and for you via brand partnerships.</p>
+        <ul class="mt-6 grid md:grid-cols-3 gap-4 text-white/80 text-sm">
+            <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 rounded-full bg-[color:var(--scd-teal)]"></span> Virtual and physical shopping are synchronized</li>
+            <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 rounded-full bg-[color:var(--scd-teal)]"></span> Transparent monetization for experts</li>
+            <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 rounded-full bg-[color:var(--scd-teal)]"></span> Deep immersion and growing ecosystem value</li>
+        </ul>
+    </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" class="max-w-6xl mx-auto px-4 py-16">
+    <div data-animate class="glow rounded-2xl border border-white/10 scd-soft p-8 text-center">
+        <h3 class="text-2xl md:text-3xl font-semibold">Ready to start?</h3>
+        <p class="mt-2 text-white/70">Create your account for free, build your first programs, and invite clients today.</p>
+        <div class="mt-6 flex justify-center gap-3">
+            <a class="btn btn-primary" href="#">Create account</a>
+            <a class="btn btn-outline hover:bg-white/10" href="#">Request demo</a>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="max-w-6xl mx-auto px-4 py-16">
+    <div data-animate>
+        <h3 class="text-2xl md:text-3xl font-semibold">FAQ</h3>
+        <div class="mt-6 grid md:grid-cols-2 gap-5">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <h4 class="text-white text-lg font-semibold">Do I need special hardware?</h4>
+                <p class="mt-2 text-white/70">No. Access via web/mobile app. Tracker integrations available if you want them.</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <h4 class="text-white text-lg font-semibold">Can I open a digital club?</h4>
+                <p class="mt-2 text-white/70">Yes. The built‑in simulator lets you launch a club with no upfront costs and manage growth.</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <h4 class="text-white text-lg font-semibold">How do coaches monetize?</h4>
+                <p class="mt-2 text-white/70">Subscriptions, one‑off programs, group courses, live events, and partner sales.</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <h4 class="text-white text-lg font-semibold">Do you offer corporate solutions?</h4>
+                <p class="mt-2 text-white/70">Yes. For fitness chains, studios, and companies with wellness programs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="relative z-10 border-t border-white/10">
+    <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-white/60 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+            <div class="h-6 w-6 rounded-lg scd-gradient" ></div>
+            <span>SCD — Sport Club Digital</span>
+        </div>
+        <div class="flex items-center gap-6">
+            <a href="/privacy" class="hover:text-white">Privacy</a>
+            <a href="/terms" class="hover:text-white">Terms</a>
+            <a href="#" class="hover:text-white">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Simple IntersectionObserver to reveal elements on scroll
+    const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+            if(e.isIntersecting){ e.target.classList.add('inview'); io.unobserve(e.target); }
+        })
+    }, {threshold: 0.08});
+    document.querySelectorAll('[data-animate]').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>
