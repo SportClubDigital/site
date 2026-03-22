@@ -51,12 +51,21 @@
             background-clip: text;
             color: transparent;
         }
+        /* Бесшовный цикл: две одинаковые полосы внутри .scd-marquee-inner, сдвиг на 50% ширины */
         @keyframes scd-marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
         }
-        .scd-marquee-track {
-            animation: scd-marquee 40s linear infinite;
+        .scd-marquee-inner {
+            display: flex;
+            width: max-content;
+            animation: scd-marquee 35s linear infinite;
+            will-change: transform;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .scd-marquee-inner {
+                animation: none;
+            }
         }
         .scd-card-gradient {
             background: linear-gradient(180deg, #151516 0%, #0d1e2e 51.32%, #10324e 100%);
@@ -101,58 +110,13 @@
 </header>
 
 <main>
-    <!-- Figma: Hero — фон, сетка, бегущая строка, слоган, заголовок, CTA -->
+    <!-- Figma: Hero — фон, сетка, слоган, заголовок, CTA; вторая бегущая строка — под hero; первая — над футером -->
     <section class="relative overflow-hidden" aria-labelledby="hero-title">
         <div class="pointer-events-none absolute inset-0 bg-scd-bg">
             <!-- image: hero background (фон) -->
             <img alt="" class="absolute inset-0 h-full w-full object-cover opacity-80" />
             <div class="absolute inset-0 bg-gradient-to-b from-scd-bg/40 via-scd-bg/70 to-scd-bg"></div>
             <div class="absolute inset-0 opacity-30 bg-[linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] bg-[size:72px_72px]"></div>
-        </div>
-
-        <div class="relative border-b border-scd-cyan2/20 bg-scd-cyan/15 py-1.5 backdrop-blur-sm">
-            <div class="flex overflow-hidden">
-                <div class="scd-marquee-track flex shrink-0 items-center gap-3 whitespace-nowrap px-4 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2">
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
-                    <span>fitness</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
-                    <span>Wellness</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
-                    <span>Innovation</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>fitness</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>Wellness</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>Innovation</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>fitness</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>Wellness</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>Innovation</span>
-                </div>
-                <div class="scd-marquee-track flex shrink-0 items-center gap-3 whitespace-nowrap px-4 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2" aria-hidden="true">
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
-                    <span>fitness</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>Wellness</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>Innovation</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>fitness</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>Wellness</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>Innovation</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>fitness</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>Wellness</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>Innovation</span>
-                </div>
-            </div>
         </div>
 
         <div class="relative mx-auto flex min-h-[min(100vh,801px)] max-w-content flex-col items-center justify-center px-4 py-16 text-center sm:px-6 lg:px-[140px] lg:py-24">
@@ -174,35 +138,38 @@
             </div>
         </div>
 
+        <!-- Figma: running line — нижняя бегущая строка hero (как в макете под блоком) -->
         <div class="relative border-t border-scd-cyan2/20 bg-scd-cyan/15 py-1.5 backdrop-blur-sm">
-            <div class="flex overflow-hidden">
-                <div class="scd-marquee-track flex shrink-0 items-center gap-3 whitespace-nowrap px-4 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2">
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>fitness</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>Wellness</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>Innovation</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>fitness</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>Wellness</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>Innovation</span>
-                </div>
-                <div class="scd-marquee-track flex shrink-0 items-center gap-3 whitespace-nowrap px-4 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2" aria-hidden="true">
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>fitness</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>Wellness</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>Innovation</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>fitness</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>Wellness</span>
-                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                    <span>Innovation</span>
+            <div class="overflow-hidden">
+                <div class="scd-marquee-inner">
+                    <div class="flex shrink-0 items-center gap-3 whitespace-nowrap px-4 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2">
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                    </div>
+                    <div class="flex shrink-0 items-center gap-3 whitespace-nowrap px-4 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2" aria-hidden="true">
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -632,6 +599,54 @@
         </div>
     </section>
 </main>
+
+<!-- Figma: running line — бегущая строка (перенесена с-под хедера) над футером -->
+<div class="relative border-y border-scd-cyan2/20 bg-scd-cyan/15 py-1.5 backdrop-blur-sm">
+    <div class="overflow-hidden">
+        <div class="scd-marquee-inner">
+            <div class="flex shrink-0 items-center gap-3 whitespace-nowrap px-4 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2">
+                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
+                <span>fitness</span>
+                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
+                <span>Wellness</span>
+                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
+                <span>Innovation</span>
+                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                <span>fitness</span>
+                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                <span>Wellness</span>
+                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                <span>Innovation</span>
+                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                <span>fitness</span>
+                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                <span>Wellness</span>
+                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                <span>Innovation</span>
+            </div>
+            <div class="flex shrink-0 items-center gap-3 whitespace-nowrap px-4 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2" aria-hidden="true">
+                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
+                <span>fitness</span>
+                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
+                <span>Wellness</span>
+                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
+                <span>Innovation</span>
+                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                <span>fitness</span>
+                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                <span>Wellness</span>
+                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                <span>Innovation</span>
+                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                <span>fitness</span>
+                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                <span>Wellness</span>
+                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                <span>Innovation</span>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Figma: footer — колонки, соцсети, кнопки сторов, водяной знак SPORT CLUB DIGITAL -->
 <footer class="relative border-t border-white/25 bg-scd-bg pt-12">
