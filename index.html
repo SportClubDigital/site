@@ -1,148 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sport Club Digital — Landing</title>
-    <meta name="description" content="A digital ecosystem for fitness &amp; wellness. No subscriptions. Only value." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        scd: {
-                            bg: '#151515',
-                            cyan: '#47C4EA',
-                            cyan2: '#36C1E7',
-                            cyan3: '#47C5EB',
-                            border: '#182A2F',
-                            deep1: '#0D1E2E',
-                            deep2: '#10324E',
-                            surface: '#182A2F',
-                            muted: '#9CA3AF',
-                            ink: '#111E22',
-                        },
-                    },
-                    maxWidth: { 'content': '1440px' },
-                },
-            },
-        };
-    </script>
-    <style>
-        .scd-text-gradient {
-            background: linear-gradient(91.87deg, #ffffff 0.66%, #b9b9b9 50.03%, #ffffff 87.5%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .scd-text-gradient-hero {
-            background: linear-gradient(91.87deg, #ffffff 0.66%, #b9b9b9 50.03%, #ffffff 87.5%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .scd-footer-watermark {
-            background: linear-gradient(183.72deg, rgba(255, 255, 255, 0.8) 23.26%, rgba(255, 255, 255, 0.1) 72.59%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        /* Бесшовный цикл: две одинаковые полосы внутри .scd-marquee-inner, сдвиг на 50% ширины */
-        @keyframes scd-marquee {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); }
-        }
-        .scd-marquee-inner {
-            display: flex;
-            width: max-content;
-            animation: scd-marquee 35s linear infinite;
-            will-change: transform;
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .scd-marquee-inner {
-                animation: none;
+    <head>
+        <!-- Basic -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sport Club Digital</title>
+        <meta name="description" content="A digital ecosystem for fitness &amp; wellness. No subscriptions. Only value.">
+        <meta name="theme-color" content="#000000">
+
+        <!-- Canonical -->
+        <link rel="canonical" href="https://sportclubdigital.com/">
+
+        <!-- Manifest -->
+        <link rel="manifest" href="/manifest.json">
+
+        <!-- Favicons -->
+        <link rel="icon" type="image/png" href="public/img/logo.png">
+        <link rel="apple-touch-icon" href="public/img/logo.png">
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Sport Club Digital">
+        <meta property="og:description" content="A digital ecosystem for fitness &amp; wellness. No subscriptions. Only value.">
+        <meta property="og:url" content="https://sportclubdigital.com/">
+        <meta property="og:site_name" content="Sport Club Digital">
+        <meta property="og:image" content="https://sportclubdigital.com/logo.png">
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Sport Club Digital">
+        <meta name="twitter:description" content="A digital ecosystem for fitness &amp; wellness. No subscriptions. Only value.">
+        <meta name="twitter:image" content="https://sportclubdigital.com/logo.png">
+
+        <!-- App Links -->
+        <meta property="al:ios:app_name" content="Sport Club Digital">
+        <meta property="al:ios:app_store_id" content="6744154833">
+        <meta property="al:ios:url" content="https://apps.apple.com/app/id6744154833">
+
+        <meta property="al:android:app_name" content="Sport Club Digital">
+        <meta property="al:android:package" content="com.sportclubdigital.app">
+        <meta property="al:android:url" content="https://play.google.com/store/apps/details?id=com.sportclubdigital.app">
+
+        <!-- SEO: Robots -->
+        <meta name="robots" content="index, follow">
+
+        <!-- Schema.org JSON-LD -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Sport Club Digital",
+                "url": "https://sportclubdigital.com/",
+                "logo": "https://sportclubdigital.com/logo.png",
+                "description": "A digital ecosystem for fitness & wellness. No subscriptions. Only value."
             }
-        }
-        .scd-card-gradient {
-            background: linear-gradient(180deg, #151516 0%, #0d1e2e 51.32%, #10324e 100%);
-        }
-    </style>
-</head>
-<body class="min-h-screen bg-scd-bg text-white antialiased [font-family:Inter,system-ui,sans-serif]">
+        </script>
 
-<!-- Figma: header — логотип Sport Club Digital, навигация, Login -->
-<header class="sticky top-0 z-50 border-b border-white/10 bg-scd-bg/90 backdrop-blur-md">
-    <div class="mx-auto flex max-w-content min-w-0 items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-[140px]">
-        <a href="#" class="flex shrink-0 items-center gap-2">
-            <span class="flex h-8 w-8 items-center justify-center rounded-2xl border border-scd-cyan2/30 bg-scd-cyan2/20" aria-hidden="true">
-                <span class="h-4 w-4 rounded-sm bg-scd-cyan"></span>
-            </span>
-            <span class="text-lg font-semibold tracking-tight text-white">Sport Club Digital</span>
-        </a>
-        <nav class="hidden items-center gap-8 text-sm text-white/70 lg:flex" aria-label="Primary">
-            <a class="hover:text-white" href="#problem-solution">Problem and Solution</a>
-            <a class="hover:text-white" href="#process">Process</a>
-            <a class="hover:text-white" href="#reviews">Reviews</a>
-            <a class="hover:text-white" href="#economic-model">Economic Model</a>
-            <a class="hover:text-white" href="#roadmap">Upcoming Features</a>
-        </nav>
-        <div class="flex items-center gap-3">
-            <a href="#" class="hidden rounded-xl border border-scd-cyan bg-scd-cyan/5 px-3 py-2.5 text-sm text-scd-cyan hover:bg-scd-cyan/10 sm:inline-flex">Login</a>
-            <details class="group relative lg:hidden">
-                <summary class="flex cursor-pointer list-none items-center rounded-xl border border-white/20 px-3 py-2 text-sm font-medium hover:bg-white/5 [&::-webkit-details-marker]:hidden">Menu</summary>
-                <div class="absolute right-0 top-full z-50 mt-2 w-56 rounded-2xl border border-scd-border bg-scd-bg p-3 shadow-xl">
-                    <nav class="flex flex-col gap-1 text-sm text-white/80" aria-label="Mobile">
-                        <a class="rounded-lg px-3 py-2 hover:bg-white/10" href="#problem-solution">Problem and Solution</a>
-                        <a class="rounded-lg px-3 py-2 hover:bg-white/10" href="#process">Process</a>
-                        <a class="rounded-lg px-3 py-2 hover:bg-white/10" href="#reviews">Reviews</a>
-                        <a class="rounded-lg px-3 py-2 hover:bg-white/10" href="#economic-model">Economic Model</a>
-                        <a class="rounded-lg px-3 py-2 hover:bg-white/10" href="#roadmap">Upcoming Features</a>
-                        <a class="mt-2 rounded-lg border border-scd-cyan px-3 py-2 text-center text-scd-cyan" href="#">Login</a>
-                    </nav>
-                </div>
-            </details>
-        </div>
-    </div>
-</header>
+        <!-- Optional dynamic title template -->
+        <script>
+            const base = "Sport Club Digital";
+            if (document.title && document.title !== base) {
+                document.title = `${document.title} | ${base}`;
+            }
+        </script>
 
-<main>
-    <!-- Figma: Hero — фон, сетка, слоган, заголовок, CTA; вторая бегущая строка — под hero; первая — над футером -->
-    <section class="relative overflow-hidden" aria-labelledby="hero-title">
-        <div class="pointer-events-none absolute inset-0 bg-scd-bg">
-            <!-- image: hero background (фон) -->
-            <img alt="" class="absolute inset-0 h-full w-full object-cover opacity-80" />
-            <div class="absolute inset-0 bg-gradient-to-b from-scd-bg/40 via-scd-bg/70 to-scd-bg"></div>
-            <div class="absolute inset-0 opacity-30 bg-[linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] bg-[size:72px_72px]"></div>
-        </div>
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+              rel="stylesheet"
+        />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            scd: {
+                                bg: '#151515',
+                                cyan: '#47C4EA',
+                                cyan2: '#36C1E7',
+                                cyan3: '#47C5EB',
+                                border: '#182A2F',
+                                deep1: '#0D1E2E',
+                                deep2: '#10324E',
+                                surface: '#182A2F',
+                                muted: '#9CA3AF',
+                                ink: '#111E22',
+                            },
+                        },
+                        maxWidth: { 'content': '1440px' },
+                    },
+                },
+            };
+        </script>
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
 
-        <div class="relative mx-auto flex min-h-[min(100vh,801px)] max-w-content flex-col items-center justify-center px-4 py-16 text-center sm:px-6 lg:px-[140px] lg:py-24">
-            <p class="mb-6 inline-flex items-center gap-2 rounded-full border border-scd-cyan2/20 bg-scd-cyan/5 px-4 py-1.5 text-sm font-medium uppercase tracking-[0.2em] text-scd-cyan2 backdrop-blur-sm">
-                <span class="h-2 w-2 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]" aria-hidden="true"></span>
-                Where Wellness Meets Innovation
-            </p>
-            <div class="mx-auto flex max-w-[912px] flex-col items-center gap-8">
-                <h1 id="hero-title" class="scd-text-gradient-hero text-balance text-4xl font-bold leading-[1.14] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] xl:leading-[1.14]">
-                    A digital ecosystem for fitness &amp; wellness
-                </h1>
-                <p class="max-w-[760px] text-pretty text-lg text-white/70 md:text-2xl md:leading-9">
-                    SCD unifies training, nutrition, and your virtual avatar. From first steps to your own digital club — grow, monetize your expertise, and inspire others.
-                </p>
-                <a href="#cta" class="inline-flex items-center gap-2 rounded-xl bg-scd-cyan px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.5)] hover:bg-scd-cyan/90">
-                    Try it now
-                    <svg class="h-4 w-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            .scd-text-gradient {
+                background: linear-gradient(91.87deg, #ffffff 0.66%, #b9b9b9 50.03%, #ffffff 87.5%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .scd-text-gradient-hero {
+                background: linear-gradient(91.87deg, #ffffff 0.66%, #b9b9b9 50.03%, #ffffff 87.5%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .scd-footer-watermark {
+                background: linear-gradient(183.72deg, rgba(255, 255, 255, 0.8) 23.26%, rgba(255, 255, 255, 0.1) 72.59%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+
+            /* Бесшовный цикл: две одинаковые полосы внутри .scd-marquee-inner, сдвиг на 50% ширины */
+            @keyframes scd-marquee {
+                from {
+                    transform: translateX(0);
+                }
+                to {
+                    transform: translateX(-50%);
+                }
+            }
+
+            .scd-marquee-inner {
+                display: flex;
+                width: max-content;
+                animation: scd-marquee 35s linear infinite;
+                will-change: transform;
+            }
+
+            .scd-marquee-inner span {
+                line-height: 0.75rem !important;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .scd-marquee-inner {
+                    animation: none;
+                }
+            }
+
+            .scd-card-gradient {
+                background: linear-gradient(180deg, #151516 0%, #0d1e2e 51.32%, #10324e 100%);
+            }
+
+            .header-gradient {
+                display: block;
+                position: relative;
+                height: 100%;
+                width: 100%;
+                margin: -74px 0 0;
+                padding-top: 74px;
+                background: radial-gradient(circle at 85% 15%, rgba(120, 190, 230, 0.45) 0%, transparent 35%),
+                radial-gradient(circle at 60% 55%, rgba(90, 160, 210, 0.35) 0%, transparent 40%),
+                radial-gradient(circle at 30% 70%, rgba(70, 140, 190, 0.30) 0%, transparent 45%),
+                radial-gradient(circle at 10% 40%, rgba(40, 110, 170, 0.25) 0%, transparent 50%),
+                linear-gradient(135deg, #000f2a 0%, #001f3f 40%, #002b55 100%);
+            }
+
+            .scd-economic-model {
+                position: absolute;
+                inset: 0;
+                opacity: 0.6;
+
+                background: radial-gradient(
+                        ellipse at center,
+                        #195381 0%,
+                        rgba(25, 83, 129, 0) 70%
+                );
+
+                filter: blur(415px);
+            }
+
+        </style>
+        <script src=".public/.public/StroyPartnerUG/sp_ug_landing/src/app/page.tsx"></script>
+    </head>
+    <body class="min-h-screen bg-scd-bg text-white antialiased [font-family:Inter,system-ui,sans-serif] relative">
+        <!-- Figma: header — логотип Sport Club Digital, навигация, Login -->
+        <header class="sticky top-0 z-50 backdrop-blur-md">
+            <div class="mx-auto flex max-w-content min-w-0 items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-[140px]">
+                <a class="flex shrink-0 items-center gap-2" href="#">
+                        <span aria-hidden="true" class="flex h-8 w-8 items-center justify-center rounded-2xl">
+                            <img alt="logo" class="h-8 w-8" src="public/img/logo.png" />
+                        </span>
+                    <span class="text-lg font-semibold tracking-tight text-white">Sport Club Digital</span>
                 </a>
+                <nav aria-label="Primary" class="hidden items-center gap-8 text-sm text-white/70 lg:flex">
+                    <a class="hover:text-white" href="#problem-solution">Problem and Solution</a>
+                    <a class="hover:text-white" href="#process">Process</a>
+                    <a class="hover:text-white" href="#reviews">Reviews</a>
+                    <a class="hover:text-white" href="#economic-model">Economic Model</a>
+                    <a class="hover:text-white" href="#roadmap">Upcoming Features</a>
+                </nav>
+                <div class="flex items-center gap-3">
+<!--                    <a class="hidden rounded-xl border border-scd-cyan bg-scd-cyan/5 px-3 py-2.5 text-sm text-scd-cyan hover:bg-scd-cyan/10 sm:inline-flex"-->
+<!--                       href="#"-->
+<!--                    >Login</a>-->
+                    <details class="group relative lg:hidden">
+                        <summary
+                                class="flex cursor-pointer list-none items-center rounded-xl border border-white/20 px-3 py-2 text-sm font-medium hover:bg-white/5 [&::-webkit-details-marker]:hidden"
+                        >
+                            Menu
+                        </summary>
+                        <div class="absolute right-0 top-full z-50 mt-2 w-56 rounded-2xl border border-scd-border bg-scd-bg p-3 shadow-xl">
+                            <nav aria-label="Mobile" class="flex flex-col gap-1 text-sm text-white/80">
+                                <a class="rounded-lg px-3 py-2 hover:bg-white/10" href="#problem-solution">
+                                    Problem and Solution
+                                </a>
+                                <a class="rounded-lg px-3 py-2 hover:bg-white/10" href="#process">Process</a>
+                                <a class="rounded-lg px-3 py-2 hover:bg-white/10" href="#reviews">Reviews</a>
+                                <a class="rounded-lg px-3 py-2 hover:bg-white/10" href="#economic-model">
+                                    Economic Model
+                                </a>
+                                <a class="rounded-lg px-3 py-2 hover:bg-white/10" href="#roadmap">
+                                    Upcoming Features
+                                </a>
+                                <a class="mt-2 rounded-lg border border-scd-cyan px-3 py-2 text-center text-scd-cyan"
+                                   href="#"
+                                >
+                                    Login
+                                </a>
+                            </nav>
+                        </div>
+                    </details>
+                </div>
             </div>
+        </header>
+        <div class="header-gradient">
+            <!-- Figma: Hero — фон, сетка, слоган, заголовок, CTA; вторая бегущая строка — под hero; первая — над футером -->
+            <section aria-labelledby="hero-title" class="relative overflow-hidden">
+                <div class="relative mx-auto flex min-h-[min(100vh,801px)] max-w-content flex-col items-center justify-center px-4 py-16 text-center sm:px-6 lg:px-[140px] lg:py-24">
+                    <p class="mb-6 inline-flex items-center gap-2 rounded-full border border-scd-cyan2/20 bg-scd-cyan/5 px-4 py-1.5 text-sm font-medium uppercase tracking-[0.2em] text-scd-cyan2 backdrop-blur-sm">
+                        <span aria-hidden="true"
+                              class="h-2 w-2 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"
+                        ></span>
+                        Where Wellness Meets Innovation
+                    </p>
+                    <div class="mx-auto flex max-w-[912px] flex-col items-center gap-8">
+                        <h1 class="scd-text-gradient-hero text-balance text-4xl font-bold leading-[1.14] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] xl:leading-[1.14]"
+                            id="hero-title"
+                        >
+                            A digital ecosystem for fitness &amp; wellness
+                        </h1>
+                        <p class="max-w-[760px] text-pretty text-lg text-white/70 md:text-2xl md:leading-9">
+                            SCD unifies training, nutrition, and your virtual avatar. From first steps to your own
+                            digital club — grow, monetize your expertise, and inspire others.
+                        </p>
+                        <a class="inline-flex items-center gap-2 rounded-xl bg-scd-cyan px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.5)] hover:bg-scd-cyan/90"
+                           href="#cta"
+                        >
+                            Try it now
+                            <svg aria-hidden="true" class="h-4 w-4 text-white" fill="none" stroke="currentColor"
+                                 stroke-width="2" viewBox="0 0 24 24"
+                            >
+                                <path d="M13 7l5 5m0 0l-5 5m5-5H6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
         </div>
 
         <!-- Figma: running line — нижняя бегущая строка hero (как в макете под блоком) -->
         <div class="relative border-t border-scd-cyan2/20 bg-scd-cyan/15 py-1.5 backdrop-blur-sm">
             <div class="overflow-hidden">
                 <div class="scd-marquee-inner">
-                    <div class="flex shrink-0 items-center gap-3 whitespace-nowrap px-4 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2">
+                    <div class="flex shrink-0 items-center gap-3 whitespace-nowrap text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2">
                         <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
                         <span>fitness</span>
                         <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
@@ -155,8 +284,11 @@
                         <span>Wellness</span>
                         <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
                         <span>Innovation</span>
+                        <span class="block h-1.5 w-1.5"></span>
                     </div>
-                    <div class="flex shrink-0 items-center gap-3 whitespace-nowrap px-4 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2" aria-hidden="true">
+                    <div aria-hidden="true"
+                         class="flex shrink-0 items-center gap-3 whitespace-nowrap text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2"
+                    >
                         <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
                         <span>fitness</span>
                         <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
@@ -169,588 +301,982 @@
                         <span>Wellness</span>
                         <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
                         <span>Innovation</span>
+                        <span class="block h-1.5 w-1.5"></span>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Figma: marketing problems block — «Rebuilding Digital Fitness», коллаж image + problem/solution -->
-    <section id="problem-solution" class="mx-auto max-w-content px-4 py-16 sm:px-6 lg:px-[140px] lg:py-24">
-        <h2 class="scd-text-gradient mx-auto mb-10 max-w-[933px] text-center text-3xl font-bold leading-tight sm:text-4xl md:text-[48px] md:leading-[114%]">
-            Rebuilding Digital Fitness the Right Way
-        </h2>
-        <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-10">
-            <div class="scd-card-gradient relative overflow-hidden rounded-[20px] border border-scd-border p-5 shadow-[0_0_40px_-10px_rgba(71,196,234,0.15)]">
-                <div class="relative mx-auto flex min-h-[280px] max-w-[560px] items-center justify-center sm:min-h-[360px] lg:min-h-[560px]">
-                    <!-- Figma: images / phone mocks — слои image -->
-                    <div class="absolute left-1/2 top-1/2 w-[45%] max-w-[228px] -translate-x-[85%] -translate-y-1/2 overflow-hidden rounded-xl shadow-2xl">
-                        <img alt="" class="aspect-[228/451] w-full bg-scd-ink object-cover" />
+                    <div aria-hidden="true"
+                         class="flex shrink-0 items-center gap-3 whitespace-nowrap text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2"
+                    >
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="block h-1.5 w-1.5"></span>
                     </div>
-                    <div class="relative z-10 w-[50%] max-w-[232px] overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
-                        <img alt="" class="aspect-[232/248] w-full object-cover" />
+                    <div aria-hidden="true"
+                         class="flex shrink-0 items-center gap-3 whitespace-nowrap text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2"
+                    >
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="block h-1.5 w-1.5"></span>
                     </div>
-                </div>
-            </div>
-            <div class="flex flex-col gap-5">
-                <article class="scd-card-gradient rounded-[20px] border border-scd-border p-5 shadow-inner">
-                    <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-scd-cyan2/20 bg-scd-cyan/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2">
-                        Market problem
-                    </p>
-                    <h3 class="mb-4 text-lg font-semibold">Why doesn’t digital fitness work the way it should?</h3>
-                    <ul class="space-y-3 text-base text-white/70">
-                        <li class="flex gap-2"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span> Chaos of free content</li>
-                        <li class="flex gap-2"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span> Subscription fatigue</li>
-                        <li class="flex gap-2"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span> Lack of trust</li>
-                        <li class="flex gap-2"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span> No scalability for trainers</li>
-                    </ul>
-                </article>
-                <article class="scd-card-gradient rounded-[20px] border border-scd-border p-5 shadow-inner">
-                    <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-scd-cyan2/20 bg-scd-cyan/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2">
-                        Solution: The SCD Ecosystem
-                    </p>
-                    <h3 class="mb-4 text-lg font-semibold">Next-generation digital fitness infrastructure</h3>
-                    <ul class="space-y-3 text-base text-white/70">
-                        <li class="flex gap-2"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span> A marketplace of verified workouts</li>
-                        <li class="flex gap-2"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span> Lifetime access</li>
-                        <li class="flex gap-2"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span> Transparent monetization</li>
-                        <li class="flex gap-2"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span> Control and ownership</li>
-                    </ul>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Figma: roles — «Choose Your Role», переключатель Athlete / Trainer, карточки -->
-    <section id="roles" class="mx-auto max-w-content px-4 py-16 sm:px-6 lg:px-[140px] lg:py-24">
-        <h2 class="scd-text-gradient mb-8 text-center text-3xl font-bold md:text-[48px]">Choose Your Role</h2>
-        <div class="mx-auto mb-10 flex max-w-md justify-center rounded-full border border-[#1F2937] bg-scd-surface p-1.5">
-            <button type="button" id="role-athlete" class="role-tab flex-1 rounded-full bg-scd-cyan3 px-6 py-3 text-base font-semibold text-white shadow-md transition">I’m Training</button>
-            <button type="button" id="role-trainer" class="role-tab flex-1 rounded-full px-6 py-3 text-base font-medium text-scd-muted transition">I’m Coaching</button>
-        </div>
-
-        <div id="panel-athlete" class="role-panel relative overflow-hidden rounded-[32px] border border-scd-border bg-scd-bg p-6 sm:p-10 md:p-[60px]">
-            <div class="pointer-events-none absolute -left-32 -top-32 h-[600px] w-[600px] rounded-full bg-scd-cyan/10 blur-[100px]" aria-hidden="true"></div>
-            <div class="relative grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-12">
-                <div>
-                    <h3 class="mb-5 text-2xl font-bold text-scd-cyan3 sm:text-[30px] sm:leading-tight">Unlock Your Ultimate Potential</h3>
-                    <p class="mb-8 text-lg text-white/70 sm:text-xl sm:leading-7">
-                        Join the metaverse ecosystem designed for peak performance. Access elite coaching and verifiable results in a gamified world.
-                    </p>
-                    <ul class="mb-10 space-y-4">
-                        <li class="flex items-center gap-3"><span class="flex h-8 w-8 items-center justify-center rounded-full bg-scd-cyan3/15"><span class="h-3 w-3 rounded-sm bg-scd-cyan3"></span></span><span class="text-lg">Verified workouts on blockchain</span></li>
-                        <li class="flex items-center gap-3"><span class="flex h-8 w-8 items-center justify-center rounded-full bg-scd-cyan3/15"><span class="h-3 w-3 rounded-sm bg-scd-cyan3"></span></span><span class="text-lg">Choose any global trainer</span></li>
-                        <li class="flex items-center gap-3"><span class="flex h-8 w-8 items-center justify-center rounded-full bg-scd-cyan3/15"><span class="h-3 w-3 rounded-sm bg-scd-cyan3"></span></span><span class="text-lg">Train anytime, anywhere 24/7</span></li>
-                        <li class="flex items-center gap-3"><span class="flex h-8 w-8 items-center justify-center rounded-full bg-scd-cyan3/15"><span class="h-3 w-3 rounded-sm bg-scd-cyan3"></span></span><span class="text-lg">Lifetime access to purchased programs</span></li>
-                        <li class="flex items-center gap-3"><span class="flex h-8 w-8 items-center justify-center rounded-full bg-scd-cyan3/15"><span class="h-3 w-3 rounded-sm bg-scd-cyan3"></span></span><span class="text-lg">Immersive social fitness layer</span></li>
-                    </ul>
-                    <a href="#cta" class="inline-flex items-center justify-center rounded-xl bg-scd-cyan px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.5)]">Start Training</a>
-                </div>
-                <div class="relative flex items-center justify-center">
-                    <!-- Figma: image — коллаж атлета / экраны -->
-                    <div class="relative w-full max-w-[576px] overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-[0_4px_70px_rgba(0,0,0,0.5)] backdrop-blur-md">
-                        <img alt="" class="aspect-[276/529] w-full object-cover sm:aspect-auto sm:min-h-[420px]" />
+                    <div aria-hidden="true"
+                         class="flex shrink-0 items-center gap-3 whitespace-nowrap text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2"
+                    >
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="block h-1.5 w-1.5"></span>
                     </div>
-                    <div class="absolute -right-2 top-8 hidden w-[40%] max-w-[280px] overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-md xl:block">
-                        <img alt="" class="aspect-[323/240] w-full object-cover" />
+                    <div aria-hidden="true"
+                         class="flex shrink-0 items-center gap-3 whitespace-nowrap text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2"
+                    >
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="block h-1.5 w-1.5"></span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="panel-trainer" class="role-panel relative mt-8 hidden overflow-hidden rounded-[32px] border border-scd-border bg-scd-bg p-6 sm:p-10 md:p-[60px]">
-            <div class="pointer-events-none absolute -right-20 -top-40 h-[500px] w-[500px] rounded-full bg-scd-cyan/10 blur-[115px]" aria-hidden="true"></div>
-            <div class="relative grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-12">
-                <div>
-                    <h3 class="mb-5 text-2xl font-bold text-scd-cyan3 sm:text-[30px] sm:leading-tight">Build Your Fitness Empire Without Boundaries</h3>
-                    <p class="mb-8 text-lg text-white/70 sm:text-xl sm:leading-7">
-                        Join the metaverse&apos;s premier fitness ecosystem. Monetize your expertise, reach global clients, and scale your brand with zero physical overhead.
-                    </p>
-                    <ul class="mb-10 space-y-6">
-                        <li class="flex gap-3">
-                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-scd-cyan3/10"><span class="h-2.5 w-4 bg-scd-cyan3"></span></span>
-                            <div><p class="font-semibold">Upload &amp; Sell Workouts</p><p class="text-sm text-white/70">Create once, sell forever. Mint your routines as digital assets.</p></div>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-scd-cyan3/10"><span class="h-3.5 w-3.5 bg-scd-cyan3"></span></span>
-                            <div><p class="font-semibold">Earn Passive Income</p><p class="text-sm text-white/70">Get paid while you sleep with automated subscriptions</p></div>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-scd-cyan3/10"><span class="h-2 w-4 bg-scd-cyan3"></span></span>
-                            <div><p class="font-semibold">Career Progression</p><p class="text-sm text-white/70">Grow from Instructor to Founding Trainer status</p></div>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-scd-cyan3/10"><span class="h-3.5 w-4 bg-scd-cyan3"></span></span>
-                            <div><p class="font-semibold">Digital Club Ownership</p><p class="text-sm text-white/70">Open your own virtual studio without rent costs</p></div>
-                        </li>
-                    </ul>
-                    <a href="#cta" class="inline-flex items-center justify-center rounded-xl bg-scd-cyan px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.5)]">Become a Founding Trainer</a>
-                </div>
-                <div class="flex flex-col items-center gap-4 lg:items-end">
-                    <!-- Figma: image_4 / ranks UI — слои image -->
-                    <div class="w-full max-w-[263px] overflow-hidden rounded-[21px] border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
-                        <img alt="" class="aspect-[263/641] w-full object-cover" />
-                    </div>
-                    <div class="w-full max-w-[317px] overflow-hidden rounded-2xl border border-scd-border bg-white/5 p-4 shadow-xl backdrop-blur-xl">
-                        <img alt="" class="aspect-[317/197] w-full object-cover" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Figma: process block — stepper + 5 карточек с image -->
-    <section id="process" class="mx-auto max-w-content px-4 py-16 sm:px-6 lg:px-[140px] lg:py-24">
-        <div class="mx-auto mb-12 max-w-[628px] text-center">
-            <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-scd-cyan2/20 bg-scd-cyan/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2">
-                <span class="h-2 w-2 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
-                Process
-            </p>
-            <h2 class="scd-text-gradient mb-4 text-3xl font-bold md:text-[48px]">How the Ecosystem Works</h2>
-            <p class="text-lg text-white/80 md:text-2xl md:leading-9">Our ecosystem is built on 5 key pillars</p>
-        </div>
-
-        <div class="mb-10 overflow-x-auto pb-2">
-            <div class="relative mx-auto min-w-[640px] max-w-[996px] px-6">
-                <div class="absolute left-14 right-14 top-[26px] h-px bg-scd-border"></div>
-                <div class="relative flex justify-between">
-                    <div class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 text-sm font-semibold uppercase tracking-widest text-scd-cyan2 backdrop-blur-sm">01</div>
-                    <div class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 text-sm font-semibold uppercase tracking-widest text-scd-cyan2 backdrop-blur-sm">02</div>
-                    <div class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 text-sm font-semibold uppercase tracking-widest text-scd-cyan2 backdrop-blur-sm">03</div>
-                    <div class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 text-sm font-semibold uppercase tracking-widest text-scd-cyan2 backdrop-blur-sm">04</div>
-                    <div class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 text-sm font-semibold uppercase tracking-widest text-scd-cyan2 backdrop-blur-sm">05</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-5">
-            <article class="scd-card-gradient flex flex-col rounded-[20px] border border-scd-border p-5">
-                <div class="mb-4">
-                    <h3 class="text-lg font-semibold">Trainer uploads</h3>
-                    <p class="mt-2 text-base text-white/70">Content creators submit their workouts</p>
-                </div>
-                <div class="mt-auto overflow-hidden rounded-2xl border border-white/5 bg-white/5 p-3 backdrop-blur-md">
-                    <!-- image -->
-                    <img alt="" class="aspect-[176/136] w-full rounded-xl object-cover" />
-                </div>
-            </article>
-            <article class="scd-card-gradient flex flex-col rounded-[20px] border border-scd-border p-5">
-                <div class="mb-4">
-                    <h3 class="text-lg font-semibold">SCD Verification</h3>
-                    <p class="mt-2 text-base text-white/70">Quality checks ensure premium standards</p>
-                </div>
-                <div class="mt-auto overflow-hidden rounded-2xl border border-white/5 bg-white/5 p-3 backdrop-blur-md">
-                    <img alt="" class="aspect-[176/136] w-full rounded-xl object-cover" />
-                </div>
-            </article>
-            <article class="scd-card-gradient flex flex-col rounded-[20px] border border-scd-border p-5">
-                <div class="mb-4">
-                    <h3 class="text-lg font-semibold">Users purchase</h3>
-                    <p class="mt-2 text-base text-white/70">Secure checkout for instant access</p>
-                </div>
-                <div class="mt-auto overflow-hidden rounded-2xl border border-white/5 bg-white/5 p-3 backdrop-blur-md">
-                    <img alt="" class="aspect-[176/136] w-full rounded-xl object-cover" />
-                </div>
-            </article>
-            <article class="scd-card-gradient flex flex-col rounded-[20px] border border-scd-border p-5">
-                <div class="mb-4">
-                    <h3 class="text-lg font-semibold">Lifetime access</h3>
-                    <p class="mt-2 text-base text-white/70">Content is added to the user library</p>
-                </div>
-                <div class="mt-auto overflow-hidden rounded-2xl border border-white/5 bg-white/5 p-3 backdrop-blur-md">
-                    <img alt="" class="aspect-[176/136] w-full rounded-xl object-cover" />
-                </div>
-            </article>
-            <article class="scd-card-gradient flex flex-col rounded-[20px] border border-scd-border p-5 sm:col-span-2 xl:col-span-1">
-                <div class="mb-4">
-                    <h3 class="text-lg font-semibold">Trainers earn</h3>
-                    <p class="mt-2 text-base text-white/70">Transparent revenue sharing</p>
-                </div>
-                <div class="mt-auto flex flex-1 items-center justify-center overflow-hidden rounded-2xl border border-white/5 bg-white/5 p-3 backdrop-blur-md">
-                    <div class="relative flex h-28 w-28 items-center justify-center">
-                        <div class="absolute inset-0 rounded-full border-[6px] border-[#293438]"></div>
-                        <div class="absolute inset-1 rounded-full border-[6px] border-scd-cyan/70 shadow-[0_0_6px_rgba(71,196,234,0.6)]" style="clip-path: polygon(50% 50%, 100% 0, 100% 100%, 0 100%, 0 0);"></div>
-                        <div class="relative text-center">
-                            <p class="text-sm font-semibold text-white">+18%</p>
-                            <p class="text-[10px] text-scd-muted">Revenue</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <!-- Figma: reviews — «Shared Growth, Real Results», карточки, стрелки, CTA -->
-    <section id="reviews" class="relative py-16 lg:py-24">
-        <div class="mx-auto max-w-content px-4 sm:px-6 lg:px-[140px]">
-            <div class="mx-auto mb-12 max-w-[663px] text-center">
-                <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-scd-cyan2/20 bg-scd-cyan/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2">
-                    <span class="h-2 w-2 rounded-full bg-scd-cyan2"></span>
-                    reviews
-                </p>
-                <h2 class="scd-text-gradient mb-4 text-3xl font-bold md:text-[48px]">Shared Growth, Real Results</h2>
-                <p class="text-lg text-white/80 md:text-2xl md:leading-9">
-                    Join thousands of professionals and enthusiasts achieving their peak potential together on SportClubDigital
-                </p>
-            </div>
-
-            <div class="relative flex flex-col items-center gap-6">
-                <div class="flex w-full max-w-6xl items-stretch justify-center gap-4 overflow-x-auto pb-2 md:gap-6" id="testimonial-track">
-                    <article class="scd-card-gradient flex w-[min(100%,415px)] shrink-0 flex-col gap-3 rounded-2xl border border-scd-border/80 p-4 opacity-50 md:w-[415px]">
-                        <div class="flex items-center gap-3">
-                            <img alt="" class="h-10 w-10 shrink-0 rounded-full border-2 border-scd-cyan3/50 object-cover" />
-                            <div>
-                                <p class="text-sm font-bold">Alex Rivera</p>
-                                <p class="text-xs font-medium text-scd-cyan3">Weightlifting Enthusiast</p>
-                            </div>
-                        </div>
-                        <p class="text-xs leading-relaxed text-white/90">SCD completely transformed my client acquisition. I went from chasing leads to having a waiting list in just three months. The analytics tools help me prove my value instantly.</p>
-                    </article>
-                    <article class="scd-card-gradient relative flex w-[min(100%,560px)] shrink-0 flex-col gap-4 rounded-[20px] border border-scd-border p-5 shadow-[0_0_40px_-12px_rgba(71,196,234,0.2)] md:w-[560px]">
-                        <span class="pointer-events-none absolute right-5 top-5 text-5xl font-serif leading-none text-white/[0.04]" aria-hidden="true">”</span>
-                        <div class="flex items-center gap-4">
-                            <img alt="" class="h-14 w-14 shrink-0 rounded-full border-2 border-scd-cyan3/50 object-cover" />
-                            <div>
-                                <p class="text-lg font-bold">Jordan Lee</p>
-                                <p class="text-sm font-medium text-scd-cyan3">HIIT Specialist</p>
-                            </div>
-                        </div>
-                        <p class="text-base leading-5 text-white/95">
-                            SCD completely transformed my client acquisition. I went from chasing leads to having a waiting list in just three months. The analytics tools help me prove my value instantly. SCD completely transformed my client acquisition.
-                        </p>
-                    </article>
-                    <article class="scd-card-gradient flex w-[min(100%,415px)] shrink-0 flex-col gap-3 rounded-2xl border border-scd-border/80 p-4 opacity-50 md:w-[415px]">
-                        <div class="flex items-center gap-3">
-                            <img alt="" class="h-10 w-10 shrink-0 rounded-full border-2 border-scd-cyan3/50 object-cover" />
-                            <div>
-                                <p class="text-sm font-bold">Sam Park</p>
-                                <p class="text-xs font-medium text-scd-cyan3">Marathon Runner</p>
-                            </div>
-                        </div>
-                        <p class="text-xs leading-relaxed text-white/90">SCD completely transformed my client acquisition. I went from chasing leads to having a waiting list in just three months. The analytics tools help me prove my value instantly.</p>
-                    </article>
-                </div>
-                <div class="flex gap-4">
-                    <button type="button" id="t-prev" class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 backdrop-blur-sm hover:bg-scd-cyan/10" aria-label="Previous testimonial">
-                        <svg class="h-6 w-6 text-scd-cyan3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-                    </button>
-                    <button type="button" id="t-next" class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 backdrop-blur-sm hover:bg-scd-cyan/10" aria-label="Next testimonial">
-                        <svg class="h-6 w-6 text-scd-cyan3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                    </button>
-                </div>
-                <p class="max-w-[301px] text-center text-base text-white/70">Swipe or use arrows to explore more stories from our community.</p>
-                <div class="flex flex-col items-stretch gap-4 sm:flex-row sm:justify-center">
-                    <a href="#cta" class="inline-flex items-center justify-center rounded-xl bg-scd-cyan px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.15)]">Join as a Trainer</a>
-                    <a href="#cta" class="inline-flex items-center justify-center rounded-xl border border-scd-cyan2 bg-scd-cyan/5 px-8 py-4 text-lg font-semibold text-scd-cyan3 shadow-[0_0_34px_rgba(54,193,231,0.15)] backdrop-blur-xl">Find a Trainer</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Figma: economic model — «No subscriptions. Only value.», диаграмма image -->
-    <section id="economic-model" class="relative overflow-hidden py-16 lg:py-24">
-        <div class="pointer-events-none absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,#195381_0%,transparent_70%)] opacity-40 blur-[120px]" aria-hidden="true"></div>
-        <div class="relative mx-auto max-w-content px-4 sm:px-6 lg:px-[140px]">
-            <div class="mx-auto mb-12 max-w-[915px] text-center">
-                <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-scd-cyan2/20 bg-scd-cyan/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2">
-                    <span class="h-2 w-2 rounded-full bg-scd-cyan2"></span>
-                    economic model
-                </p>
-                <h2 class="scd-text-gradient mb-4 text-3xl font-bold md:text-[48px]">No subscriptions. Only value.</h2>
-                <p class="text-lg text-white/80 md:text-2xl md:leading-9">
-                    Transparent marketplace economics: athletes pay for results, trainers earn with clear commissions, and verification keeps quality high.
-                </p>
-            </div>
-            <div class="scd-card-gradient overflow-hidden rounded-3xl border border-scd-border p-4 shadow-2xl backdrop-blur-sm sm:p-6">
-                <!-- Figma: image — общая схема economic model -->
-                <img alt="" class="mx-auto w-full max-w-[1153px] object-contain" />
-            </div>
-            <div class="mt-10 grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-3">
-                <div class="rounded-2xl border border-scd-border bg-scd-surface/80 p-4 text-sm text-white/70 backdrop-blur-md">
-                    <p class="font-semibold text-white">Lifetime access</p>
-                    <p class="mt-2">Users own what they buy — your library stays with you</p>
-                </div>
-                <div class="rounded-2xl border border-scd-border bg-scd-surface/80 p-4 text-sm text-white/70 backdrop-blur-md">
-                    <p class="font-semibold text-white">No hidden payments</p>
-                    <p class="mt-2">Clear receipts and predictable economics for both sides</p>
-                </div>
-                <div class="rounded-2xl border border-scd-border bg-scd-surface/80 p-4 text-sm text-white/70 backdrop-blur-md sm:col-span-1">
-                    <p class="font-semibold text-white">Transparent commission</p>
-                    <p class="mt-2">Simple marketplace take-rate (no surprises for trainers)</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Figma: roadmap — Future Roadmap, 3 карточки с image -->
-    <section id="roadmap" class="mx-auto max-w-content px-4 py-16 sm:px-6 lg:px-[140px] lg:py-24">
-        <div class="mx-auto mb-12 max-w-[807px] text-center">
-            <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-scd-cyan2/20 bg-scd-cyan/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2">
-                <span class="h-2 w-2 rounded-full bg-scd-cyan2"></span>
-                Upcoming Features
-            </p>
-            <h2 class="scd-text-gradient mb-4 text-3xl font-bold md:text-[48px]">Future Roadmap</h2>
-            <p class="text-lg text-white/80 md:text-2xl md:leading-9">
-                We believe in shared growth. Here&apos;s a transparent look at the features we&apos;re building to empower trainers and trainees alike.
-            </p>
-        </div>
-
-        <div id="roadmap-slider" class="flex flex-col gap-8 lg:flex-row lg:gap-10 lg:overflow-x-auto lg:pb-4">
-            <article class="scd-card-gradient flex min-h-[500px] min-w-0 flex-col overflow-hidden rounded-[20px] border border-scd-border lg:min-w-[360px] lg:flex-1">
-                <div class="relative h-[200px] shrink-0 sm:h-[258px]">
-                    <!-- image -->
-                    <img alt="" class="absolute inset-0 h-full w-full object-cover" />
-                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-scd-deep1/80 to-scd-deep1"></div>
-                    <span class="absolute right-5 top-5 rounded-full bg-scd-cyan px-4 py-2 text-xs font-medium uppercase tracking-widest text-white shadow-lg">Coming Soon</span>
-                </div>
-                <div class="flex flex-1 flex-col gap-4 p-5">
-                    <div class="flex items-center gap-3 border-b border-[#183D5B] pb-4">
-                        <span class="flex h-8 w-8 items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 text-scd-cyan3" aria-hidden="true">
-                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                        </span>
-                        <span class="text-sm font-medium text-scd-cyan3">Q3 2026</span>
-                    </div>
-                    <h3 class="text-lg font-semibold">AI personal trainer</h3>
-                    <p class="flex-1 text-base text-white/70">Adaptive programming that learns from your performance and recovery signals to keep you progressing safely.</p>
-                    <div class="flex items-center justify-between border-t border-[#183D5B] pt-4 text-sm text-white/70">
-                        <span class="uppercase">Status</span>
-                        <div class="flex items-center gap-3">
-                            <div class="h-1.5 w-20 overflow-hidden rounded-full bg-gray-700"><div class="h-full w-3/4 rounded-full bg-scd-cyan"></div></div>
-                            <span>In Design</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article class="scd-card-gradient flex min-h-[500px] min-w-0 flex-col overflow-hidden rounded-[20px] border border-scd-border lg:min-w-[360px] lg:flex-1">
-                <div class="relative h-[200px] shrink-0 sm:h-[258px]">
-                    <img alt="" class="absolute inset-0 h-full w-full object-cover" />
-                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-scd-deep1/80 to-scd-deep1"></div>
-                    <span class="absolute right-5 top-5 rounded-full bg-scd-cyan px-4 py-2 text-xs font-medium uppercase tracking-widest text-white shadow-lg">Coming Soon</span>
-                </div>
-                <div class="flex flex-1 flex-col gap-4 p-5">
-                    <div class="flex items-center gap-3 border-b border-[#183D5B] pb-4">
-                        <span class="flex h-8 w-8 items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 text-scd-cyan3" aria-hidden="true">
-                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                        </span>
-                        <span class="text-sm font-medium text-scd-cyan3">Q3 2026</span>
-                    </div>
-                    <h3 class="text-lg font-semibold">Immersive club spaces</h3>
-                    <p class="flex-1 text-base text-white/70">Social training rooms and events that connect athletes and coaches beyond a single workout file.</p>
-                    <div class="flex items-center justify-between border-t border-[#183D5B] pt-4 text-sm text-white/70">
-                        <span class="uppercase">Status</span>
-                        <div class="flex items-center gap-3">
-                            <div class="h-1.5 w-20 overflow-hidden rounded-full bg-gray-700"><div class="h-full w-3/4 rounded-full bg-scd-cyan"></div></div>
-                            <span>In Design</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article class="scd-card-gradient flex min-h-[500px] min-w-0 flex-col overflow-hidden rounded-[20px] border border-scd-border lg:min-w-[360px] lg:flex-1">
-                <div class="relative h-[200px] shrink-0 sm:h-[258px]">
-                    <img alt="" class="absolute inset-0 h-full w-full object-cover" />
-                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-scd-deep1/80 to-scd-deep1"></div>
-                    <span class="absolute right-5 top-5 rounded-full bg-scd-cyan px-4 py-2 text-xs font-medium uppercase tracking-widest text-white shadow-lg">Coming Soon</span>
-                </div>
-                <div class="flex flex-1 flex-col gap-4 p-5">
-                    <div class="flex items-center gap-3 border-b border-[#183D5B] pb-4">
-                        <span class="flex h-8 w-8 items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 text-scd-cyan3" aria-hidden="true">
-                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                        </span>
-                        <span class="text-sm font-medium text-scd-cyan3">Q3 2026</span>
-                    </div>
-                    <h3 class="text-lg font-semibold">Verified performance graph</h3>
-                    <p class="flex-1 text-base text-white/70">Cross-app progress history that athletes own and coaches can trust when building long-term plans.</p>
-                    <div class="flex items-center justify-between border-t border-[#183D5B] pt-4 text-sm text-white/70">
-                        <span class="uppercase">Status</span>
-                        <div class="flex items-center gap-3">
-                            <div class="h-1.5 w-20 overflow-hidden rounded-full bg-gray-700"><div class="h-full w-3/4 rounded-full bg-scd-cyan"></div></div>
-                            <span>In Design</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </div>
-        <div class="mt-8 hidden justify-center gap-4 lg:flex">
-            <button type="button" class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5" aria-label="Scroll roadmap left" data-scroll-roadmap="-1">
-                <svg class="h-6 w-6 text-scd-cyan3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-            </button>
-            <button type="button" class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5" aria-label="Scroll roadmap right" data-scroll-roadmap="1">
-                <svg class="h-6 w-6 text-scd-cyan3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-            </button>
-        </div>
-    </section>
-
-    <!-- Figma: финальный CTA — градиентный баннер, кнопки Start Training / Start Coaching -->
-    <section id="cta" class="relative py-16 lg:py-24">
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-scd-deep1 via-scd-bg to-scd-bg" aria-hidden="true"></div>
-        <div class="relative mx-auto max-w-content px-4 sm:px-6 lg:px-[140px]">
-            <div class="mx-auto max-w-[912px] rounded-3xl border border-scd-cyan2/20 bg-gradient-to-br from-scd-cyan/20 via-scd-deep1/90 to-scd-bg px-6 py-12 text-center shadow-[0_0_60px_-20px_rgba(71,196,234,0.4)] sm:px-10 sm:py-16">
-                <h2 class="scd-text-gradient mb-4 text-3xl font-bold sm:text-4xl md:text-6xl lg:text-[80px] lg:leading-[1.14]">
-                    Join Now. Train Better. Grow Faster.
+        <main>
+            <!-- Figma: marketing problems block — «Rebuilding Digital Fitness», коллаж image + problem/solution -->
+            <section class="mx-auto max-w-content px-4 py-16 sm:px-6 lg:px-[140px] lg:py-24" id="problem-solution">
+                <h2 class="scd-text-gradient mx-auto mb-10 max-w-[933px] text-center text-3xl font-bold leading-tight sm:text-4xl md:text-[48px] md:leading-[114%]">
+                    Rebuilding Digital Fitness the Right Way
                 </h2>
-                <p class="mx-auto mb-10 max-w-[760px] text-lg text-white/90 md:text-2xl md:leading-9">
-                    Join our community of athletes and trainers building the future of verified fitness — one workout, one result, one transparent transaction at a time.
-                </p>
-                <div class="flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:gap-8">
-                    <a href="#" class="inline-flex items-center justify-center rounded-xl bg-scd-cyan px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.15)]">Start Training</a>
-                    <a href="#" class="inline-flex items-center justify-center rounded-xl border border-scd-cyan2 bg-scd-cyan/5 px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.15)] backdrop-blur-xl">Start Coaching</a>
+                <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-10">
+                    <div class="scd-card-gradient relative overflow-hidden rounded-[20px] border border-scd-border p-5 shadow-[0_0_40px_-10px_rgba(71,196,234,0.15)]">
+                        <div class="relative mx-auto flex gap-[26px] min-h-[280px] max-w-[560px] items-center justify-center sm:min-h-[360px] lg:min-h-[560px]">
+                            <!-- Figma: images / phone mocks — слои image -->
+                            <div class="relative w-[45%] max-w-[228px] overflow-hidden rounded-xl shadow-2xl">
+                                <img alt="" class="aspect-[228/451] w-full bg-scd-ink object-cover"
+                                     src="public/img/rebuilding-1.png"
+                                />
+                            </div>
+                            <div class="relative z-10 w-[50%] max-w-[232px] overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
+                                <img alt="" class="aspect-[232/248] w-full object-cover" src="public/img/rebuilding-2.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-5">
+                        <article class="scd-card-gradient rounded-[20px] border border-scd-border p-5 shadow-inner">
+                            <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-scd-cyan2/20 bg-scd-cyan/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2">
+                                Market problem
+                            </p>
+                            <h3 class="mb-4 text-lg font-semibold">
+                                Why doesn’t digital fitness work the way it should?
+                            </h3>
+                            <ul class="space-y-3 text-base text-white/70">
+                                <li class="flex gap-2">
+                                    <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
+                                    Chaos of free content
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
+                                    Subscription fatigue
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
+                                    Lack of trust
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
+                                    No scalability for trainers
+                                </li>
+                            </ul>
+                        </article>
+                        <article class="scd-card-gradient rounded-[20px] border border-scd-border p-5 shadow-inner">
+                            <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-scd-cyan2/20 bg-scd-cyan/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2">
+                                Solution: The SCD Ecosystem
+                            </p>
+                            <h3 class="mb-4 text-lg font-semibold">
+                                Next-generation digital fitness infrastructure
+                            </h3>
+                            <ul class="space-y-3 text-base text-white/70">
+                                <li class="flex gap-2">
+                                    <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
+                                    A marketplace of verified workouts
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
+                                    Lifetime access
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
+                                    Transparent monetization
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
+                                    Control and ownership
+                                </li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Figma: roles — «Choose Your Role», переключатель Athlete / Trainer, карточки -->
+            <section class="mx-auto max-w-content px-4 py-16 sm:px-6 lg:px-[140px] lg:py-24" id="roles">
+                <h2 class="scd-text-gradient mb-8 text-center text-3xl font-bold md:text-[48px]">
+                    Choose Your Role
+                </h2>
+                <div class="mx-auto mb-10 flex max-w-md justify-center rounded-full border border-[#1F2937] bg-scd-surface p-1.5">
+                    <button class="role-tab flex-1 rounded-full bg-scd-cyan3 px-6 py-3 text-base font-semibold text-white shadow-md transition"
+                            id="role-athlete"
+                            type="button"
+                    >I’m Training
+                    </button>
+                    <button class="role-tab flex-1 rounded-full px-6 py-3 text-base font-medium text-scd-muted transition"
+                            id="role-trainer"
+                            type="button"
+                    >I’m Coaching
+                    </button>
+                </div>
+
+                <div class="role-panel relative overflow-hidden rounded-[32px] border border-scd-border bg-scd-bg p-6 sm:p-10 md:p-[60px]"
+                     id="panel-athlete"
+                >
+                    <div aria-hidden="true"
+                         class="pointer-events-none absolute -left-32 -top-32 h-[600px] w-[600px] rounded-full bg-scd-cyan/10 blur-[100px]"
+                    ></div>
+                    <div class="relative grid grid-cols-1 gap-10 lg:grid-cols-5 lg:gap-12">
+                        <div class="col-span-2">
+                            <h3 class="mb-5 text-2xl font-bold text-scd-cyan3 sm:text-[30px] sm:leading-tight">
+                                Unlock Your Ultimate Potential
+                            </h3>
+                            <p class="mb-8 text-lg text-white/70 sm:text-xl sm:leading-7">
+                                Join the metaverse ecosystem designed for peak performance. Access elite coaching and
+                                verifiable results in a gamified world.
+                            </p>
+                            <ul class="mb-10 space-y-4">
+                                <li class="flex items-center gap-3">
+                                    <span class="flex h-8 w-8 items-center justify-center rounded-full">
+                                        <img alt="" src="public/img/training-icon-1.png" />
+                                    </span>
+                                    <span class="text-lg">Verified workouts on blockchain</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="flex h-8 w-8 items-center justify-center rounded-full ">
+                                        <img alt="" src="public/img/training-icon-2.png" />
+                                    </span>
+                                    <span class="text-lg">Choose any global trainer</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="flex h-8 w-8 items-center justify-center rounded-full">
+                                        <img alt="" src="public/img/training-icon-3.png" />
+                                    </span>
+                                    <span class="text-lg">Train anytime, anywhere 24/7</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="flex h-8 w-8 items-center justify-center rounded-full">
+                                        <img alt="" src="public/img/training-icon-4.png" />
+                                    </span>
+                                    <span class="text-lg">Lifetime access to purchased programs</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="flex h-8 w-8 items-center justify-center rounded-full">
+                                        <img alt="" src="public/img/training-icon-5.png" />
+                                    </span>
+                                    <span class="text-lg">Immersive social fitness layer</span>
+                                </li>
+                            </ul>
+                            <a class="inline-flex items-center justify-center rounded-xl bg-scd-cyan px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.5)]"
+                               href="#cta"
+                            >Start Training</a>
+                        </div>
+                        <div class="relative flex flex-col sm:flex-row items-center justify-center gap-[26px] col-span-3">
+                            <!-- Figma: image — коллаж атлета / экраны -->
+                            <div class="relative max-w-[576px] overflow-hidden rounded-[18px] shadow-xl backdrop-blur-md">
+                                <img alt=""
+                                     class="aspect-[276/529] object-cover sm:aspect-auto  max-h-[530px]"
+                                     src="public/img/training-1.png"
+                                />
+                            </div>
+                            <div class="lg:ml-[-46px] lg:mt-[-100px] w-full max-w-[320px] overflow-hidden rounded-[20px] shadow-xl backdrop-blur-md xl:block">
+                                <img alt="" class="aspect-[323/240] w-full object-cover"
+                                     src="public/img/training-2.png"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="role-panel relative mt-8 hidden overflow-hidden rounded-[32px] border border-scd-border bg-scd-bg p-6 sm:p-10 md:p-[60px]"
+                     id="panel-trainer"
+                >
+                    <div aria-hidden="true"
+                         class="pointer-events-none absolute -right-20 -top-40 h-[500px] w-[500px] rounded-full bg-scd-cyan/10 blur-[115px]"
+                    ></div>
+                    <div class="relative grid grid-cols-1 gap-10 lg:grid-cols-5 lg:gap-12">
+                        <div class="col-span-2">
+                            <h3 class="mb-5 text-2xl font-bold text-scd-cyan3 sm:text-[30px] sm:leading-tight">Build
+                                Your Fitness Empire Without Boundaries</h3>
+                            <p class="mb-8 text-lg text-white/70 sm:text-xl sm:leading-7">
+                                Join the metaverse&apos;s premier fitness ecosystem. Monetize your expertise, reach
+                                global clients, and scale your brand with zero physical overhead.
+                            </p>
+                            <ul class="mb-10 space-y-6">
+                                <li class="flex gap-3">
+                                    <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full">
+                                        <img alt="" src="public/img/trainer-icon-1.png" />
+                                    </span>
+                                    <div>
+                                        <p class="font-semibold">Upload &amp; Sell Workouts</p>
+                                        <p class="text-sm text-white/70">
+                                            Create once, sell forever. Mint your routines as digital assets.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full">
+                                        <img alt="" src="public/img/trainer-icon-2.png" />
+                                    </span>
+                                    <div>
+                                        <p class="font-semibold">Earn Passive Income</p>
+                                        <p class="text-sm text-white/70">
+                                            Get paid while you sleep with automated subscriptions
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full">
+                                        <img alt="" src="public/img/trainer-icon-3.png" />
+                                    </span>
+                                    <div>
+                                        <p class="font-semibold">Career Progression</p>
+                                        <p class="text-sm text-white/70">
+                                            Grow from Instructor to Founding Trainer status
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full">
+                                        <img alt="" src="public/img/trainer-icon-4.png" />
+                                    </span>
+                                    <div>
+                                        <p class="font-semibold">Digital Club Ownership</p>
+                                        <p class="text-sm text-white/70">
+                                            Open your own virtual studio without rent costs
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <a class="inline-flex items-center justify-center rounded-xl bg-scd-cyan px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.5)]"
+                               href="#cta"
+                            >Become a Founding Trainer</a>
+                        </div>
+                        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 lg:center col-span-3">
+                            <!-- Figma: image_4 / ranks UI — слои image -->
+                            <div class="w-full max-w-[263px] overflow-hidden rounded-[20px] shadow-2xl backdrop-blur-md">
+                                <img alt="" class="aspect-[263/641] w-full object-cover"
+                                     src="public/img/trainer-1.png"
+                                />
+                            </div>
+                            <div class="lg:ml-[-2.5rem] lg:mt-[60px] overflow-hidden w-full max-w-[317px] rounded-[18px] shadow-2xl backdrop-blur-xl">
+                                <img alt="" class="aspect-[317/197] w-full object-cover"
+                                     src="public/img/trainer-2.png"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Figma: process block — stepper + 5 карточек с image -->
+            <section class="mx-auto max-w-content px-4 py-16 sm:px-6 lg:px-[140px] lg:py-24" id="process">
+                <div class="mx-auto mb-12 max-w-[628px] text-center">
+                    <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-scd-cyan2/20 bg-scd-cyan/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2">
+                        <span class="h-2 w-2 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
+                        Process
+                    </p>
+                    <h2 class="scd-text-gradient mb-4 text-3xl font-bold md:text-[48px]/[56px]">
+                        How the Ecosystem Works
+                    </h2>
+                    <p class="text-lg text-white/80 md:text-2xl md:leading-9">
+                        Our ecosystem is built on 5 key pillars
+                    </p>
+                </div>
+
+                <div class="mb-10 overflow-x-auto pb-2 hidden xl:block">
+                    <div class="relative mx-auto min-w-[640px] max-w-[996px]">
+                        <div class="absolute left-14 right-14 top-[26px] h-px bg-scd-border"></div>
+                        <div class="relative flex justify-between">
+                            <div class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 text-sm font-semibold uppercase tracking-widest text-scd-cyan2 backdrop-blur-sm">
+                                01
+                            </div>
+                            <div class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 text-sm font-semibold uppercase tracking-widest text-scd-cyan2 backdrop-blur-sm">
+                                02
+                            </div>
+                            <div class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 text-sm font-semibold uppercase tracking-widest text-scd-cyan2 backdrop-blur-sm">
+                                03
+                            </div>
+                            <div class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 text-sm font-semibold uppercase tracking-widest text-scd-cyan2 backdrop-blur-sm">
+                                04
+                            </div>
+                            <div class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 text-sm font-semibold uppercase tracking-widest text-scd-cyan2 backdrop-blur-sm">
+                                05
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-5">
+                    <article class="scd-card-gradient flex flex-col rounded-[20px] border border-scd-border p-5">
+                        <div class="flex xl:hidden h-[52px] w-[52px] items-center justify-center mb-4 rounded-full border border-scd-border bg-scd-cyan/5 text-sm font-semibold uppercase tracking-widest text-scd-cyan2 backdrop-blur-sm">
+                            01
+                        </div>
+                        <div class="mb-4">
+                            <h3 class="text-lg font-semibold">Trainer uploads</h3>
+                            <p class="mt-2 text-base text-white/70">Content creators submit their workouts</p>
+                        </div>
+                        <div class="mt-auto overflow-hidden rounded-2xl backdrop-blur-md">
+                            <!-- image -->
+                            <img alt="" class="aspect-[176/136] w-full rounded-xl object-cover"
+                                 src="public/img/process-1.png"
+                            />
+                        </div>
+                    </article>
+                    <article class="scd-card-gradient flex flex-col rounded-[20px] border border-scd-border p-5">
+                        <div class="flex xl:hidden h-[52px] w-[52px] items-center justify-center mb-4 rounded-full border border-scd-border bg-scd-cyan/5 text-sm font-semibold uppercase tracking-widest text-scd-cyan2 backdrop-blur-sm">
+                            02
+                        </div>
+                        <div class="mb-4">
+                            <h3 class="text-lg font-semibold">SCD Verification</h3>
+                            <p class="mt-2 text-base text-white/70">Quality checks ensure premium standards</p>
+                        </div>
+                        <div class="mt-auto overflow-hidden rounded-2xl backdrop-blur-md">
+                            <img alt="" class="aspect-[176/136] w-full rounded-xl object-cover"
+                                 src="public/img/process-2.png"
+                            />
+                        </div>
+                    </article>
+                    <article class="scd-card-gradient flex flex-col rounded-[20px] border border-scd-border p-5">
+                        <div class="flex xl:hidden h-[52px] w-[52px] items-center justify-center mb-4 rounded-full border border-scd-border bg-scd-cyan/5 text-sm font-semibold uppercase tracking-widest text-scd-cyan2 backdrop-blur-sm">
+                            03
+                        </div>
+                        <div class="mb-4">
+                            <h3 class="text-lg font-semibold">Users purchase</h3>
+                            <p class="mt-2 text-base text-white/70">Secure checkout for instant access</p>
+                        </div>
+                        <div class="mt-auto overflow-hidden rounded-2xl backdrop-blur-md">
+                            <img alt="" class="aspect-[176/136] w-full rounded-xl object-cover"
+                                 src="public/img/process-3.png"
+                            />
+                        </div>
+                    </article>
+                    <article class="scd-card-gradient flex flex-col rounded-[20px] border border-scd-border p-5">
+                        <div class="flex xl:hidden h-[52px] w-[52px] items-center justify-center mb-4 rounded-full border border-scd-border bg-scd-cyan/5 text-sm font-semibold uppercase tracking-widest text-scd-cyan2 backdrop-blur-sm">
+                            04
+                        </div>
+                        <div class="mb-4">
+                            <h3 class="text-lg font-semibold">Lifetime access</h3>
+                            <p class="mt-2 text-base text-white/70">Content is added to the user library</p>
+                        </div>
+                        <div class="mt-auto overflow-hidden rounded-2xl backdrop-blur-md">
+                            <img alt="" class="aspect-[176/136] w-full rounded-xl object-cover"
+                                 src="public/img/process-4.png"
+                            />
+                        </div>
+                    </article>
+                    <article class="scd-card-gradient flex flex-col rounded-[20px] border border-scd-border p-5">
+                        <div class="flex xl:hidden h-[52px] w-[52px] items-center justify-center mb-4 rounded-full border border-scd-border bg-scd-cyan/5 text-sm font-semibold uppercase tracking-widest text-scd-cyan2 backdrop-blur-sm">
+                            05
+                        </div>
+                        <div class="mb-4">
+                            <h3 class="text-lg font-semibold">Trainers earn</h3>
+                            <p class="mt-2 text-base text-white/70">Transparent revenue sharing</p>
+                        </div>
+                        <div class="mt-auto overflow-hidden rounded-2xl backdrop-blur-md">
+                            <img alt="" class="aspect-[176/136] w-full rounded-xl object-cover"
+                                 src="public/img/process-5.png"
+                            />
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!--    &lt;!&ndash; Figma: reviews — «Shared Growth, Real Results», карточки, стрелки, CTA &ndash;&gt;-->
+            <!--    <section id="reviews" class="relative py-16 lg:py-24">-->
+            <!--        <div class="mx-auto max-w-content px-4 sm:px-6 lg:px-[140px]">-->
+            <!--            <div class="mx-auto mb-12 max-w-[663px] text-center">-->
+            <!--                <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-scd-cyan2/20 bg-scd-cyan/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2">-->
+            <!--                    <span class="h-2 w-2 rounded-full bg-scd-cyan2"></span>-->
+            <!--                    reviews-->
+            <!--                </p>-->
+            <!--                <h2 class="scd-text-gradient mb-4 text-3xl font-bold md:text-[48px]">Shared Growth, Real Results</h2>-->
+            <!--                <p class="text-lg text-white/80 md:text-2xl md:leading-9">-->
+            <!--                    Join thousands of professionals and enthusiasts achieving their peak potential together on SportClubDigital-->
+            <!--                </p>-->
+            <!--            </div>-->
+
+            <!--            <div class="relative flex flex-col items-center gap-6">-->
+            <!--                <div class="flex w-full max-w-6xl items-stretch justify-center gap-4 overflow-x-auto pb-2 md:gap-6" id="testimonial-track">-->
+            <!--                    <article class="scd-card-gradient flex w-[min(100%,415px)] shrink-0 flex-col gap-3 rounded-2xl border border-scd-border/80 p-4 opacity-50 md:w-[415px]">-->
+            <!--                        <div class="flex items-center gap-3">-->
+            <!--                            <img alt="" class="h-10 w-10 shrink-0 rounded-full border-2 border-scd-cyan3/50 object-cover" />-->
+            <!--                            <div>-->
+            <!--                                <p class="text-sm font-bold">Alex Rivera</p>-->
+            <!--                                <p class="text-xs font-medium text-scd-cyan3">Weightlifting Enthusiast</p>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                        <p class="text-xs leading-relaxed text-white/90">SCD completely transformed my client acquisition. I went from chasing leads to having a waiting list in just three months. The analytics tools help me prove my value instantly.</p>-->
+            <!--                    </article>-->
+            <!--                    <article class="scd-card-gradient relative flex w-[min(100%,560px)] shrink-0 flex-col gap-4 rounded-[20px] border border-scd-border p-5 shadow-[0_0_40px_-12px_rgba(71,196,234,0.2)] md:w-[560px]">-->
+            <!--                        <span class="pointer-events-none absolute right-5 top-5 text-5xl font-serif leading-none text-white/[0.04]" aria-hidden="true">”</span>-->
+            <!--                        <div class="flex items-center gap-4">-->
+            <!--                            <img alt="" class="h-14 w-14 shrink-0 rounded-full border-2 border-scd-cyan3/50 object-cover" />-->
+            <!--                            <div>-->
+            <!--                                <p class="text-lg font-bold">Jordan Lee</p>-->
+            <!--                                <p class="text-sm font-medium text-scd-cyan3">HIIT Specialist</p>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                        <p class="text-base leading-5 text-white/95">-->
+            <!--                            SCD completely transformed my client acquisition. I went from chasing leads to having a waiting list in just three months. The analytics tools help me prove my value instantly. SCD completely transformed my client acquisition.-->
+            <!--                        </p>-->
+            <!--                    </article>-->
+            <!--                    <article class="scd-card-gradient flex w-[min(100%,415px)] shrink-0 flex-col gap-3 rounded-2xl border border-scd-border/80 p-4 opacity-50 md:w-[415px]">-->
+            <!--                        <div class="flex items-center gap-3">-->
+            <!--                            <img alt="" class="h-10 w-10 shrink-0 rounded-full border-2 border-scd-cyan3/50 object-cover" />-->
+            <!--                            <div>-->
+            <!--                                <p class="text-sm font-bold">Sam Park</p>-->
+            <!--                                <p class="text-xs font-medium text-scd-cyan3">Marathon Runner</p>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                        <p class="text-xs leading-relaxed text-white/90">SCD completely transformed my client acquisition. I went from chasing leads to having a waiting list in just three months. The analytics tools help me prove my value instantly.</p>-->
+            <!--                    </article>-->
+            <!--                </div>-->
+            <!--                <div class="flex gap-4">-->
+            <!--                    <button type="button" id="t-prev" class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 backdrop-blur-sm hover:bg-scd-cyan/10" aria-label="Previous testimonial">-->
+            <!--                        <svg class="h-6 w-6 text-scd-cyan3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>-->
+            <!--                    </button>-->
+            <!--                    <button type="button" id="t-next" class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 backdrop-blur-sm hover:bg-scd-cyan/10" aria-label="Next testimonial">-->
+            <!--                        <svg class="h-6 w-6 text-scd-cyan3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>-->
+            <!--                    </button>-->
+            <!--                </div>-->
+            <!--                <p class="max-w-[301px] text-center text-base text-white/70">Swipe or use arrows to explore more stories from our community.</p>-->
+            <!--                <div class="flex flex-col items-stretch gap-4 sm:flex-row sm:justify-center">-->
+            <!--                    <a href="#cta" class="inline-flex items-center justify-center rounded-xl bg-scd-cyan px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.15)]">Join as a Trainer</a>-->
+            <!--                    <a href="#cta" class="inline-flex items-center justify-center rounded-xl border border-scd-cyan2 bg-scd-cyan/5 px-8 py-4 text-lg font-semibold text-scd-cyan3 shadow-[0_0_34px_rgba(54,193,231,0.15)] backdrop-blur-xl">Find a Trainer</a>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </section>-->
+
+            <!-- Figma: economic model — «No subscriptions. Only value.», диаграмма image -->
+
+            <section class="relative overflow-hidden py-16 lg:py-24" id="economic-model">
+                <div class="scd-economic-model"></div>
+                <div aria-hidden="true"
+                     class="pointer-events-none absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,#195381_0%,transparent_70%)] opacity-40 blur-[120px]"
+                ></div>
+                <div class="relative mx-auto max-w-content px-4 sm:px-6 lg:px-[140px]">
+                    <div class="mx-auto mb-12 max-w-[915px] text-center">
+                        <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-scd-cyan2/20 bg-scd-cyan/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2">
+                            <span class="h-2 w-2 rounded-full bg-scd-cyan2"></span>
+                            Economic model
+                        </p>
+                        <h2 class="scd-text-gradient mb-4 text-3xl font-bold md:text-[48px]/[56px]">
+                            No subscriptions. Only value.
+                        </h2>
+                        <p class="text-lg text-white/80 md:text-2xl md:leading-9">
+                            Transparent marketplace economics: athletes pay for results, trainers earn with clear
+                            commissions, and verification keeps quality high.
+                        </p>
+                    </div>
+                    <div class="relative overflow-hidden sm:p-6 flex flex-row justify-center">
+                        <!-- Figma: image — общая схема economic model -->
+                        <img alt="" class="max-h-[630px] object-contain hidden lg:block" src="public/img/economic-1.png" />
+                        <div class="block lg:hidden">
+                            <div class="w-full p-4 text-sm text-white/70">
+                                <img alt="" class="w-8 h-8 mb-4" src="public/img/economic-icon.png" />
+                                <p class="font-semibold text-white">Lifetime access</p>
+                                <p class="mt-2">Users own what they buy — your library stays with you</p>
+                            </div>
+                            <img alt="" class="max-h-[630px] object-contain" src="public/img/economic-mobile-1.png" />
+                            <div class="w-full p-4 text-sm text-white/70 ">
+                                <img alt="" class="w-8 h-8 mb-4" src="public/img/economic-icon.png" />
+                                <p class="font-semibold text-white">No hidden payments</p>
+                                <p class="mt-2">Clear receipts and predictable economics for both sides</p>
+                            </div>
+                            <img alt="" class="max-h-[630px] object-contain" src="img/economic-mobile-2.png" />
+                            <div class="w-full p-4 text-sm text-white/70">
+                                <img alt="" class="w-8 h-8 mb-4" src="public/img/economic-icon.png" />
+                                <p class="font-semibold text-white">Transparent commission</p>
+                                <p class="mt-2">Simple marketplace take-rate (no surprises for trainers)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Figma: roadmap — Future Roadmap, 3 карточки с image -->
+            <section class="mx-auto max-w-content px-4 py-16 sm:px-6 lg:px-[140px] lg:py-24" id="roadmap">
+                <div class="mx-auto mb-12 max-w-[807px] text-center">
+                    <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-scd-cyan2/20 bg-scd-cyan/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2">
+                        <span class="h-2 w-2 rounded-full bg-scd-cyan2"></span>
+                        Upcoming Features
+                    </p>
+                    <h2 class="scd-text-gradient mb-4 text-3xl font-bold md:text-[48px]/[56px]">Future Roadmap</h2>
+                    <p class="text-lg text-white/80 md:text-2xl md:leading-9">
+                        We believe in shared growth. Here&apos;s a transparent look at the features we&apos;re building
+                        to empower trainers and trainees alike.
+                    </p>
+                </div>
+
+                <div class="flex flex-col gap-8 lg:flex-row lg:gap-10 lg:overflow-x-auto lg:pb-4" id="roadmap-slider">
+                    <article
+                            class="scd-card-gradient flex min-h-[500px] min-w-0 flex-col overflow-hidden rounded-[20px] border border-scd-border lg:min-w-[360px] lg:flex-1"
+                    >
+                        <div class="relative h-[200px] shrink-0 sm:h-[258px]">
+                            <!-- image -->
+                            <img alt="" class="absolute inset-0 h-full w-full object-cover" src="public/img/feature.png" />
+                            <span class="absolute right-5 top-5 rounded-full bg-scd-cyan px-4 py-2 text-xs font-medium uppercase tracking-widest text-white shadow-lg">Coming Soon</span>
+                        </div>
+                        <div class="flex flex-1 flex-col gap-4 p-5">
+                            <div class="flex items-center gap-3 border-b border-[#183D5B] pb-4">
+                                <span aria-hidden="true"
+                                      class="flex h-8 w-8 items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 text-scd-cyan3"
+                                >
+                                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                              stroke-linecap="round" stroke-linejoin="round"
+                                              stroke-width="1.5"
+                                        />
+                                    </svg>
+                                </span>
+                                <span class="text-sm font-medium text-scd-cyan3">Q3 2026</span>
+                            </div>
+                            <h3 class="text-lg font-semibold">AI personal trainer</h3>
+                            <p class="flex-1 text-base text-white/70">
+                                Adaptive programming that learns from your performance and recovery signals to keep you
+                                progressing safely.
+                            </p>
+                            <div class="flex items-center justify-between border-t border-[#183D5B] pt-4 text-sm text-white/70">
+                                <span class="uppercase">Status</span>
+                                <div class="flex items-center gap-3">
+                                    <div class="h-1.5 w-20 overflow-hidden rounded-full bg-gray-700">
+                                        <div class="h-full w-3/4 rounded-full bg-scd-cyan"></div>
+                                    </div>
+                                    <span>In Design</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article
+                            class="scd-card-gradient flex min-h-[500px] min-w-0 flex-col overflow-hidden rounded-[20px] border border-scd-border lg:min-w-[360px] lg:max-w-[460px] lg:flex-1"
+                    >
+                        <div class="relative h-[200px] shrink-0 sm:h-[258px]">
+                            <img alt="" class="absolute inset-0 h-full w-full object-cover" src="public/img/feature.png" />
+                            <span class="absolute right-5 top-5 rounded-full bg-scd-cyan px-4 py-2 text-xs font-medium uppercase tracking-widest text-white shadow-lg">Coming Soon</span>
+                        </div>
+                        <div class="flex flex-1 flex-col gap-4 p-5">
+                            <div class="flex items-center gap-3 border-b border-[#183D5B] pb-4">
+                                <span aria-hidden="true"
+                                      class="flex h-8 w-8 items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 text-scd-cyan3"
+                                >
+                                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                              stroke-linecap="round" stroke-linejoin="round"
+                                              stroke-width="1.5"
+                                        />
+                                    </svg>
+                                </span>
+                                <span class="text-sm font-medium text-scd-cyan3">Q3 2026</span>
+                            </div>
+                            <h3 class="text-lg font-semibold">Immersive club spaces</h3>
+                            <p class="flex-1 text-base text-white/70">
+                                Social training rooms and events that connect athletes and coaches beyond a single
+                                workout file.
+                            </p>
+                            <div class="flex items-center justify-between border-t border-[#183D5B] pt-4 text-sm text-white/70">
+                                <span class="uppercase">Status</span>
+                                <div class="flex items-center gap-3">
+                                    <div class="h-1.5 w-20 overflow-hidden rounded-full bg-gray-700">
+                                        <div class="h-full w-3/4 rounded-full bg-scd-cyan"></div>
+                                    </div>
+                                    <span>In Design</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article
+                            class="scd-card-gradient flex min-h-[500px] min-w-0 flex-col overflow-hidden rounded-[20px] border border-scd-border lg:min-w-[360px] lg:flex-1"
+                    >
+                        <div class="relative h-[200px] shrink-0 sm:h-[258px]">
+                            <img alt="" class="absolute inset-0 h-full w-full object-cover" src="public/img/feature.png" />
+                            <span class="absolute right-5 top-5 rounded-full bg-scd-cyan px-4 py-2 text-xs font-medium uppercase tracking-widest text-white shadow-lg">Coming Soon</span>
+                        </div>
+                        <div class="flex flex-1 flex-col gap-4 p-5">
+                            <div class="flex items-center gap-3 border-b border-[#183D5B] pb-4">
+                                <span aria-hidden="true"
+                                      class="flex h-8 w-8 items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 text-scd-cyan3"
+                                >
+                                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                              stroke-linecap="round" stroke-linejoin="round"
+                                              stroke-width="1.5"
+                                        />
+                                    </svg>
+                                </span>
+                                <span class="text-sm font-medium text-scd-cyan3">Q3 2026</span>
+                            </div>
+                            <h3 class="text-lg font-semibold">Verified performance graph</h3>
+                            <p class="flex-1 text-base text-white/70">
+                                Cross-app progress history that athletes own and coaches can trust when building
+                                long-term plans.
+                            </p>
+                            <div class="flex items-center justify-between border-t border-[#183D5B] pt-4 text-sm text-white/70">
+                                <span class="uppercase">Status</span>
+                                <div class="flex items-center gap-3">
+                                    <div class="h-1.5 w-20 overflow-hidden rounded-full bg-gray-700">
+                                        <div class="h-full w-3/4 rounded-full bg-scd-cyan"></div>
+                                    </div>
+                                    <span>In Design</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <!--                <div class="mt-8 hidden justify-center gap-4 lg:flex">-->
+                <!--                    <button aria-label="Scroll roadmap left"-->
+                <!--                            class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5"-->
+                <!--                            data-scroll-roadmap="-1" type="button"-->
+                <!--                    >-->
+                <!--                        <svg class="h-6 w-6 text-scd-cyan3" fill="none" stroke="currentColor" stroke-width="2"-->
+                <!--                             viewBox="0 0 24 24"-->
+                <!--                        >-->
+                <!--                            <path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" />-->
+                <!--                        </svg>-->
+                <!--                    </button>-->
+                <!--                    <button aria-label="Scroll roadmap right"-->
+                <!--                            class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5"-->
+                <!--                            data-scroll-roadmap="1" type="button"-->
+                <!--                    >-->
+                <!--                        <svg class="h-6 w-6 text-scd-cyan3" fill="none" stroke="currentColor" stroke-width="2"-->
+                <!--                             viewBox="0 0 24 24"-->
+                <!--                        >-->
+                <!--                            <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />-->
+                <!--                        </svg>-->
+                <!--                    </button>-->
+                <!--                </div>-->
+            </section>
+
+            <!-- Figma: финальный CTA — градиентный баннер, кнопки Start Training / Start Coaching -->
+            <section class="relative py-16 lg:py-24" id="cta">
+                <div aria-hidden="true"
+                     class="pointer-events-none absolute inset-0 bg-gradient-to-b from-scd-deep1 via-scd-bg to-scd-bg"
+                ></div>
+                <div class="relative mx-auto max-w-content px-4 sm:px-6 lg:px-[140px]">
+                    <div class="mx-auto max-w-[912px] rounded-3xl px-6 py-12 text-center sm:px-10 sm:py-16">
+                        <h2 class="scd-text-gradient mb-4 text-3xl font-bold sm:text-4xl md:text-6xl lg:text-[80px] lg:leading-[1.14]">
+                            Join Now. Train Better. Grow Faster.
+                        </h2>
+                        <p class="mx-auto mb-10 max-w-[760px] text-lg text-white/90 md:text-2xl md:leading-9">
+                            Join our community of athletes and trainers building the future of verified fitness —
+                            one
+                            workout, one result, one transparent transaction at a time.
+                        </p>
+                        <div class="flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:gap-8">
+                            <a class="inline-flex items-center justify-center rounded-xl bg-scd-cyan px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.15)]"
+                               href="#"
+                            >Start Training</a>
+                            <a class="inline-flex items-center justify-center rounded-xl border border-scd-cyan2 bg-scd-cyan/5 px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.15)] backdrop-blur-xl"
+                               href="#"
+                            >Start Coaching</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Figma: running line — нижняя бегущая строка hero (как в макете под блоком) -->
+        <div class="relative border-t border-scd-cyan2/20 bg-scd-cyan/15 py-1.5 backdrop-blur-sm">
+            <div class="overflow-hidden">
+                <div class="scd-marquee-inner">
+                    <div class="flex shrink-0 items-center gap-3 whitespace-nowrap text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2">
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="block h-1.5 w-1.5"></span>
+                    </div>
+                    <div aria-hidden="true"
+                         class="flex shrink-0 items-center gap-3 whitespace-nowrap text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2"
+                    >
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="block h-1.5 w-1.5"></span>
+                    </div>
+                    <div aria-hidden="true"
+                         class="flex shrink-0 items-center gap-3 whitespace-nowrap text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2"
+                    >
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="block h-1.5 w-1.5"></span>
+                    </div>
+                    <div aria-hidden="true"
+                         class="flex shrink-0 items-center gap-3 whitespace-nowrap text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2"
+                    >
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="block h-1.5 w-1.5"></span>
+                    </div>
+                    <div aria-hidden="true"
+                         class="flex shrink-0 items-center gap-3 whitespace-nowrap text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2"
+                    >
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="block h-1.5 w-1.5"></span>
+                    </div>
+                    <div aria-hidden="true"
+                         class="flex shrink-0 items-center gap-3 whitespace-nowrap text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2"
+                    >
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>fitness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Wellness</span>
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
+                        <span>Innovation</span>
+                        <span class="block h-1.5 w-1.5"></span>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-</main>
 
-<!-- Figma: running line — бегущая строка (перенесена с-под хедера) над футером -->
-<div class="relative border-y border-scd-cyan2/20 bg-scd-cyan/15 py-1.5 backdrop-blur-sm">
-    <div class="overflow-hidden">
-        <div class="scd-marquee-inner">
-            <div class="flex shrink-0 items-center gap-3 whitespace-nowrap px-4 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2">
-                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
-                <span>fitness</span>
-                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
-                <span>Wellness</span>
-                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
-                <span>Innovation</span>
-                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                <span>fitness</span>
-                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                <span>Wellness</span>
-                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                <span>Innovation</span>
-                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                <span>fitness</span>
-                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                <span>Wellness</span>
-                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                <span>Innovation</span>
+        <!-- Figma: footer — колонки, соцсети, кнопки сторов, водяной знак SPORT CLUB DIGITAL -->
+        <footer class="relative border-t border-white/25 bg-scd-bg pt-12">
+            <div aria-hidden="true"
+                 class="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center overflow-hidden"
+            >
+                <span class="scd-footer-watermark whitespace-nowrap text-[clamp(3rem,12vw,10.5rem)] font-bold leading-none opacity-[0.12]">SPORT CLUB DIGITAL</span>
             </div>
-            <div class="flex shrink-0 items-center gap-3 whitespace-nowrap px-4 text-xs font-medium uppercase tracking-[0.2em] text-scd-cyan2" aria-hidden="true">
-                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
-                <span>fitness</span>
-                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
-                <span>Wellness</span>
-                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"></span>
-                <span>Innovation</span>
-                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                <span>fitness</span>
-                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                <span>Wellness</span>
-                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                <span>Innovation</span>
-                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                <span>fitness</span>
-                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                <span>Wellness</span>
-                <span class="inline-block h-1.5 w-1.5 rounded-full bg-scd-cyan2"></span>
-                <span>Innovation</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Figma: footer — колонки, соцсети, кнопки сторов, водяной знак SPORT CLUB DIGITAL -->
-<footer class="relative border-t border-white/25 bg-scd-bg pt-12">
-    <div class="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center overflow-hidden" aria-hidden="true">
-        <span class="scd-footer-watermark whitespace-nowrap text-[clamp(3rem,12vw,10.5rem)] font-bold leading-none opacity-[0.12]">SPORT CLUB DIGITAL</span>
-    </div>
-    <div class="relative mx-auto max-w-content px-4 pb-8 sm:px-6 lg:px-[140px]">
-        <div class="grid grid-cols-1 gap-10 border-b border-white/10 pb-10 md:grid-cols-2 lg:grid-cols-4">
-            <div>
-                <p class="text-xl font-semibold">The SCD Team</p>
-                <p class="mt-3 max-w-xs text-lg text-scd-muted">Building transparent fitness infrastructure for the next generation of athletes and coaches.</p>
-                <div class="mt-6 flex gap-4">
-                    <a href="#" class="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#C837AB] via-[#FB5246] to-[#FFDD55]" aria-label="Instagram"><span class="h-5 w-5 rounded-sm bg-white/90"></span></a>
-                    <a href="#" class="flex h-12 w-12 items-center justify-center rounded-full bg-[#3B5998]" aria-label="Facebook"><span class="text-lg font-bold text-white">f</span></a>
-                    <a href="#" class="flex h-12 w-12 items-center justify-center rounded-full bg-scd-surface ring-1 ring-white/10" aria-label="LinkedIn">
-                        <!-- Figma: linkedin vector — image.png -->
-                        <img alt="" class="h-6 w-6 object-contain opacity-90" />
+            <div class="relative mx-auto max-w-content px-4 pb-8 sm:px-6 lg:px-[140px]">
+                <div class="grid grid-cols-1 gap-10 border-b border-white/10 pb-10 md:grid-cols-2 lg:grid-cols-4">
+                    <div>
+                        <p class="text-xl font-semibold">The SCD Team</p>
+                        <p class="mt-3 max-w-xs text-lg text-scd-muted">
+                            Building transparent fitness infrastructure for the next generation of athletes and coaches.
+                        </p>
+                        <div class="mt-6 flex gap-4">
+                            <a aria-label="Instagram"
+                               class="flex h-12 w-12 items-center justify-center rounded-full"
+                               href="https://www.instagram.com/sport_club_digital/"
+                            >
+                                <img alt="" src="public/img/social-icon-1.png" />
+                            </a>
+                            <a aria-label="Facebook"
+                               class="flex h-12 w-12 items-center justify-center rounded-full"
+                               href="https://www.facebook.com/profile.php?id=100089893445808#"
+                            >
+                                <img alt="" src="public/img/social-icon-2.png" />
+                            </a>
+                            <a aria-label="LinkedIn"
+                               class="flex h-12 w-12 items-center justify-center rounded-full"
+                               href="https://ae.linkedin.com/company/sportclubdigital"
+                            >
+                                <img alt="" src="public/img/social-icon-3.png" />
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="mb-4 text-lg font-normal text-white">Platform</p>
+                        <ul class="space-y-3 text-lg text-white">
+                            <li>
+                                <a class="hover:text-scd-cyan" href="#problem-solution">Problem and Solution</a>
+                            </li>
+                            <li><a class="hover:text-scd-cyan" href="#process">Process</a></li>
+                            <li><a class="hover:text-scd-cyan" href="#reviews">Reviews</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="mb-4 text-lg font-normal text-white">Company</p>
+                        <ul class="space-y-3 text-lg text-white">
+                            <li><a class="hover:text-scd-cyan" href="#economic-model">Economic Model</a></li>
+                            <li><a class="hover:text-scd-cyan" href="#roadmap">Upcoming Features</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="mb-4 text-lg font-normal text-white">Legal</p>
+                        <ul class="space-y-3 text-lg text-white">
+                            <li><a class="hover:text-scd-cyan" href="/privacy">Privacy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4 py-10 sm:flex-row flex-wrap lg:flex-nowrap sm:justify-center">
+                    <a class="flex h-[60px] w-full min-w-[240px] items-center justify-center rounded-[9.625px] bg-black px-8 text-sm font-medium text-white ring-1 ring-white/10"
+                       href="https://apps.apple.com/app/id6744154833"
+                    >
+                        <img alt="Download on the App Store"
+                             class="max-h-[50px]"
+                             src="https://scd-s3.ams3.cdn.digitaloceanspaces.com/scd-static/assets/base/install-apple.png"
+                        />
+                    </a>
+                    <a class="flex h-[60px] w-full min-w-[240px] items-center justify-center rounded-[9.625px] bg-black px-8 text-sm font-medium text-white ring-1 ring-white/10"
+                       href="https://play.google.com/store/apps/details?id=com.sportclubdigital.app"
+                    >
+                        <img alt="Get it on Google Play"
+                             class="max-h-[50px]"
+                             src="https://scd-s3.ams3.cdn.digitaloceanspaces.com/scd-static/assets/base/install-google.png"
+                        />
                     </a>
                 </div>
+                <p class="pb-8 text-center text-sm text-scd-muted">&copy; <span id="y"></span> Sport Club Digital.
+                    All
+                    rights reserved.</p>
             </div>
-            <div>
-                <p class="mb-4 text-lg font-normal text-white">Platform</p>
-                <ul class="space-y-3 text-lg text-white">
-                    <li><a class="hover:text-scd-cyan" href="#problem-solution">Problem and Solution</a></li>
-                    <li><a class="hover:text-scd-cyan" href="#process">Process</a></li>
-                    <li><a class="hover:text-scd-cyan" href="#reviews">Reviews</a></li>
-                </ul>
-            </div>
-            <div>
-                <p class="mb-4 text-lg font-normal text-white">Company</p>
-                <ul class="space-y-3 text-lg text-white">
-                    <li><a class="hover:text-scd-cyan" href="#economic-model">Economic Model</a></li>
-                    <li><a class="hover:text-scd-cyan" href="#roadmap">Upcoming Features</a></li>
-                </ul>
-            </div>
-            <div>
-                <p class="mb-4 text-lg font-normal text-white">Legal</p>
-                <ul class="space-y-3 text-lg text-white">
-                    <li><a class="hover:text-scd-cyan" href="/privacy">Privacy</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="flex flex-col gap-4 py-10 sm:flex-row sm:flex-wrap sm:justify-center">
-            <a href="#" class="flex h-[59px] min-w-[240px] items-center justify-center rounded-[9.625px] bg-black px-8 text-sm font-medium text-white ring-1 ring-white/10">
-                <!-- store badge — при необходимости заменить на image/pngwing -->
-                Download on the App Store
-            </a>
-            <a href="#" class="flex h-[59px] min-w-[240px] items-center justify-center rounded-[9.625px] bg-black px-8 text-sm font-medium text-white ring-1 ring-white/10">
-                Get it on Google Play
-            </a>
-        </div>
-        <p class="pb-8 text-center text-sm text-scd-muted">&copy; <span id="y"></span> Sport Club Digital. All rights reserved.</p>
-    </div>
-</footer>
+        </footer>
 
-<script>
-    (function () {
-        document.getElementById('y').textContent = new Date().getFullYear();
+        <script>
+            (function () {
+                document.getElementById('y').textContent = new Date().getFullYear();
 
-        var athleteBtn = document.getElementById('role-athlete');
-        var trainerBtn = document.getElementById('role-trainer');
-        var panelAthlete = document.getElementById('panel-athlete');
-        var panelTrainer = document.getElementById('panel-trainer');
+                var athleteBtn = document.getElementById('role-athlete');
+                var trainerBtn = document.getElementById('role-trainer');
+                var panelAthlete = document.getElementById('panel-athlete');
+                var panelTrainer = document.getElementById('panel-trainer');
 
-        function setRole(trainer) {
-            if (!athleteBtn || !trainerBtn || !panelAthlete || !panelTrainer) return;
-            if (trainer) {
-                panelAthlete.classList.add('hidden');
-                panelTrainer.classList.remove('hidden');
-                trainerBtn.classList.add('bg-scd-cyan3', 'font-semibold', 'text-white', 'shadow-md');
-                trainerBtn.classList.remove('text-scd-muted', 'font-medium');
-                athleteBtn.classList.remove('bg-scd-cyan3', 'font-semibold', 'text-white', 'shadow-md');
-                athleteBtn.classList.add('text-scd-muted', 'font-medium');
-            } else {
-                panelTrainer.classList.add('hidden');
-                panelAthlete.classList.remove('hidden');
-                athleteBtn.classList.add('bg-scd-cyan3', 'font-semibold', 'text-white', 'shadow-md');
-                athleteBtn.classList.remove('text-scd-muted', 'font-medium');
-                trainerBtn.classList.remove('bg-scd-cyan3', 'font-semibold', 'text-white', 'shadow-md');
-                trainerBtn.classList.add('text-scd-muted', 'font-medium');
-            }
-        }
+                function setRole(trainer) {
+                    if (!athleteBtn || !trainerBtn || !panelAthlete || !panelTrainer) return;
+                    if (trainer) {
+                        panelAthlete.classList.add('hidden');
+                        panelTrainer.classList.remove('hidden');
+                        trainerBtn.classList.add('bg-scd-cyan3', 'font-semibold', 'text-white', 'shadow-md');
+                        trainerBtn.classList.remove('text-scd-muted', 'font-medium');
+                        athleteBtn.classList.remove('bg-scd-cyan3', 'font-semibold', 'text-white', 'shadow-md');
+                        athleteBtn.classList.add('text-scd-muted', 'font-medium');
+                    } else {
+                        panelTrainer.classList.add('hidden');
+                        panelAthlete.classList.remove('hidden');
+                        athleteBtn.classList.add('bg-scd-cyan3', 'font-semibold', 'text-white', 'shadow-md');
+                        athleteBtn.classList.remove('text-scd-muted', 'font-medium');
+                        trainerBtn.classList.remove('bg-scd-cyan3', 'font-semibold', 'text-white', 'shadow-md');
+                        trainerBtn.classList.add('text-scd-muted', 'font-medium');
+                    }
+                }
 
-        if (athleteBtn) athleteBtn.addEventListener('click', function () { setRole(false); });
-        if (trainerBtn) trainerBtn.addEventListener('click', function () { setRole(true); });
+                if (athleteBtn) athleteBtn.addEventListener('click', function () {
+                    setRole(false);
+                });
+                if (trainerBtn) trainerBtn.addEventListener('click', function () {
+                    setRole(true);
+                });
 
-        var track = document.getElementById('testimonial-track');
-        var prev = document.getElementById('t-prev');
-        var next = document.getElementById('t-next');
-        if (track && prev && next) {
-            var step = function (dir) {
-                track.scrollBy({ left: dir * Math.min(400, track.clientWidth * 0.85), behavior: 'smooth' });
-            };
-            prev.addEventListener('click', function () { step(-1); });
-            next.addEventListener('click', function () { step(1); });
-        }
+                var track = document.getElementById('testimonial-track');
+                var prev = document.getElementById('t-prev');
+                var next = document.getElementById('t-next');
+                if (track && prev && next) {
+                    var step = function (dir) {
+                        track.scrollBy({ left: dir * Math.min(400, track.clientWidth * 0.85), behavior: 'smooth' });
+                    };
+                    prev.addEventListener('click', function () {
+                        step(-1);
+                    });
+                    next.addEventListener('click', function () {
+                        step(1);
+                    });
+                }
 
-        document.querySelectorAll('[data-scroll-roadmap]').forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                var row = document.getElementById('roadmap-slider');
-                if (row) row.scrollBy({ left: Number(btn.getAttribute('data-scroll-roadmap')) * 320, behavior: 'smooth' });
-            });
-        });
-    })();
-</script>
-</body>
+                document.querySelectorAll('[data-scroll-roadmap]').forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        var row = document.getElementById('roadmap-slider');
+                        if (row) row.scrollBy({
+                            left: Number(btn.getAttribute('data-scroll-roadmap')) * 320,
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+            })();
+        </script>
+    </body>
 </html>

@@ -1,0 +1,24 @@
+{
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "purpose": "maskable",
+      "sizes": "64x674",
+      "src": "./img/logo.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "64x64",
+      "src": "./img/logo.png",
+      "type": "image/png"
+    }
+  ],
+  "orientation": "any",
+  "display": "standalone",
+  "dir": "auto",
+  "lang": "en-EN",
+  "name": "Sport Club Digital",
+  "short_name": "SCD"
+}
