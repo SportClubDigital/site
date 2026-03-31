@@ -150,6 +150,15 @@
                 background: linear-gradient(180deg, #151516 0%, #0d1e2e 51.32%, #10324e 100%);
             }
 
+            /* Тот же слой фона, что под шапкой (герой); без отступов героя */
+            .scd-header-gradient-bg {
+                background: radial-gradient(circle at 85% 15%, rgba(120, 190, 230, 0.45) 0%, transparent 35%),
+                radial-gradient(circle at 60% 55%, rgba(90, 160, 210, 0.35) 0%, transparent 40%),
+                radial-gradient(circle at 30% 70%, rgba(70, 140, 190, 0.30) 0%, transparent 45%),
+                radial-gradient(circle at 10% 40%, rgba(40, 110, 170, 0.25) 0%, transparent 50%),
+                linear-gradient(135deg, #000f2a 0%, #001f3f 40%, #002b55 100%);
+            }
+
             .header-gradient {
                 display: block;
                 position: relative;
@@ -157,11 +166,6 @@
                 width: 100%;
                 margin: -74px 0 0;
                 padding-top: 74px;
-                background: radial-gradient(circle at 85% 15%, rgba(120, 190, 230, 0.45) 0%, transparent 35%),
-                radial-gradient(circle at 60% 55%, rgba(90, 160, 210, 0.35) 0%, transparent 40%),
-                radial-gradient(circle at 30% 70%, rgba(70, 140, 190, 0.30) 0%, transparent 45%),
-                radial-gradient(circle at 10% 40%, rgba(40, 110, 170, 0.25) 0%, transparent 50%),
-                linear-gradient(135deg, #000f2a 0%, #001f3f 40%, #002b55 100%);
             }
 
             .scd-economic-model {
@@ -232,7 +236,7 @@
                 </div>
             </div>
         </header>
-        <div class="header-gradient">
+        <div class="header-gradient scd-header-gradient-bg">
             <!-- Figma: Hero — фон, сетка, слоган, заголовок, CTA; вторая бегущая строка — под hero; первая — над футером -->
             <section aria-labelledby="hero-title" class="relative overflow-hidden">
                 <div class="relative mx-auto flex min-h-[min(100vh,801px)] max-w-content flex-col items-center justify-center px-4 py-16 text-center sm:px-6 lg:px-[140px] lg:py-24">
@@ -997,33 +1001,6 @@
                 <!--                    </button>-->
                 <!--                </div>-->
             </section>
-
-            <!-- Figma: финальный CTA — градиентный баннер, кнопки Start Training / Start Coaching -->
-            <section class="relative py-16 lg:py-24" id="cta">
-                <div aria-hidden="true"
-                     class="pointer-events-none absolute inset-0 bg-gradient-to-b from-scd-deep1 via-scd-bg to-scd-bg"
-                ></div>
-                <div class="relative mx-auto max-w-content px-4 sm:px-6 lg:px-[140px]">
-                    <div class="mx-auto max-w-[912px] rounded-3xl px-6 py-12 text-center sm:px-10 sm:py-16">
-                        <h2 class="scd-text-gradient mb-4 text-3xl font-bold sm:text-4xl md:text-6xl lg:text-[80px] lg:leading-[1.14]">
-                            Join Now. Train Better. Grow Faster.
-                        </h2>
-                        <p class="mx-auto mb-10 max-w-[760px] text-lg text-white/90 md:text-2xl md:leading-9">
-                            Join our community of athletes and trainers building the future of verified fitness —
-                            one
-                            workout, one result, one transparent transaction at a time.
-                        </p>
-                        <div class="flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:gap-8">
-                            <a class="inline-flex items-center justify-center rounded-xl bg-scd-cyan px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.15)]"
-                               href="#"
-                            >Start Training</a>
-                            <a class="inline-flex items-center justify-center rounded-xl border border-scd-cyan2 bg-scd-cyan/5 px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.15)] backdrop-blur-xl"
-                               href="#"
-                            >Start Coaching</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </main>
 
         <!-- Figma: running line — нижняя бегущая строка hero (как в макете под блоком) -->
@@ -1135,20 +1112,40 @@
         </div>
 
         <!-- Figma: footer — колонки, соцсети, кнопки сторов, водяной знак SPORT CLUB DIGITAL -->
-        <footer class="relative border-t border-white/25 bg-scd-bg pt-12">
-            <div aria-hidden="true"
-                 class="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center overflow-hidden"
-            >
-                <span class="scd-footer-watermark whitespace-nowrap text-[clamp(3rem,12vw,10.5rem)] font-bold leading-none opacity-[0.12]">SPORT CLUB DIGITAL</span>
-            </div>
-            <div class="relative mx-auto max-w-content px-4 pb-8 sm:px-6 lg:px-[140px]">
-                <div class="grid grid-cols-1 gap-10 border-b border-white/10 pb-10 md:grid-cols-2 lg:grid-cols-4">
-                    <div>
-                        <p class="text-xl font-semibold">The SCD Team</p>
-                        <p class="mt-3 max-w-xs text-lg text-scd-muted">
-                            Building transparent fitness infrastructure for the next generation of athletes and coaches.
+        <footer class="scd-header-gradient-bg relative border-t border-white/25">
+            <!-- Figma: финальный CTA — градиентный баннер, кнопки Start Training / Start Coaching -->
+            <section class="relative scroll-mt-[74px] py-20" id="cta">
+                <div class="relative mx-auto max-w-content px-4 sm:px-6 lg:px-[140px]">
+                    <div class="mx-auto max-w-[912px] rounded-3xl px-6 py-12 text-center sm:px-10 sm:py-16">
+                        <h2 class="scd-text-gradient mb-4 text-3xl font-bold sm:text-4xl md:text-6xl lg:text-[80px] lg:leading-[1.14]">
+                            Join Now. Train Better. Grow Faster.
+                        </h2>
+                        <p class="mx-auto mb-10 max-w-[760px] text-lg text-white/90 md:text-2xl md:leading-9">
+                            Join our community of athletes and trainers building the future of verified fitness —
+                            one
+                            workout, one result, one transparent transaction at a time.
                         </p>
-                        <div class="mt-6 flex gap-4">
+                        <div class="flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:gap-8">
+                            <a class="inline-flex items-center justify-center rounded-xl bg-scd-cyan px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.15)]"
+                               href="#"
+                            >Start Training</a>
+                            <a class="inline-flex items-center justify-center rounded-xl border border-scd-cyan2 bg-scd-cyan/5 px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.15)] backdrop-blur-xl"
+                               href="#"
+                            >Start Coaching</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+<!--            <div aria-hidden="true"-->
+<!--                 class="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center overflow-hidden"-->
+<!--            >-->
+<!--                <span class="scd-footer-watermark whitespace-nowrap text-[clamp(3rem,12vw,10.5rem)] font-bold leading-none opacity-[0.12]">SPORT CLUB DIGITAL</span>-->
+<!--            </div>-->
+            <div class="relative mx-auto max-w-content border-t border-white/10 px-4 pb-8 pt-20 sm:px-6 lg:px-[140px]">
+                <div class="flex flex-col gap-8 pb-10">
+                    <div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+                        <p class="text-xl font-semibold">The SCD Team</p>
+                        <div class="flex shrink-0 gap-4 sm:pt-0">
                             <a aria-label="Instagram"
                                class="flex h-12 w-12 items-center justify-center rounded-full"
                                href="https://www.instagram.com/sport_club_digital/"
@@ -1169,39 +1166,17 @@
                             </a>
                         </div>
                     </div>
-                    <div>
-                        <p class="mb-4 text-lg font-normal text-white">Platform</p>
-                        <ul class="space-y-3 text-lg text-white">
-                            <li>
-                                <a class="hover:text-scd-cyan" href="#problem-solution">Problem and Solution</a>
-                            </li>
-                            <li><a class="hover:text-scd-cyan" href="#process">Process</a></li>
-                            <li><a class="hover:text-scd-cyan" href="#reviews">Reviews</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <p class="mb-4 text-lg font-normal text-white">Company</p>
-                        <ul class="space-y-3 text-lg text-white">
-                            <li><a class="hover:text-scd-cyan" href="#economic-model">Economic Model</a></li>
-                            <li><a class="hover:text-scd-cyan" href="#roadmap">Upcoming Features</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <p class="mb-4 text-lg font-normal text-white">Legal</p>
-                        <ul class="space-y-3 text-lg text-white">
-                            <li><a class="hover:text-scd-cyan" href="/privacy">Privacy</a></li>
-                        </ul>
+                    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                        <p class="text-sm text-scd-muted">&copy; <span id="y"></span> Sport Club Digital. All rights
+                            reserved.</p>
+                        <nav aria-label="Legal" class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white">
+                            <a class="hover:text-scd-cyan" href="/privacy">Privacy Policy</a>
+                            <a class="hover:text-scd-cyan" href="/terms">Terms of Use</a>
+                            <a class="hover:text-scd-cyan" href="mailto:info@sportclubdigital.com">Contact</a>
+                        </nav>
                     </div>
                 </div>
                 <div class="flex flex-col gap-4 py-10 sm:flex-row flex-wrap lg:flex-nowrap sm:justify-center">
-                    <a class="flex h-[60px] w-full min-w-[240px] items-center justify-center rounded-[9.625px] bg-black px-8 text-sm font-medium text-white ring-1 ring-white/10"
-                       href="https://apps.apple.com/app/id6744154833"
-                    >
-                        <img alt="Download on the App Store"
-                             class="max-h-[50px]"
-                             src="https://scd-s3.ams3.cdn.digitaloceanspaces.com/scd-static/assets/base/install-apple.png"
-                        />
-                    </a>
                     <a class="flex h-[60px] w-full min-w-[240px] items-center justify-center rounded-[9.625px] bg-black px-8 text-sm font-medium text-white ring-1 ring-white/10"
                        href="https://play.google.com/store/apps/details?id=com.sportclubdigital.app"
                     >
@@ -1210,10 +1185,15 @@
                              src="https://scd-s3.ams3.cdn.digitaloceanspaces.com/scd-static/assets/base/install-google.png"
                         />
                     </a>
+                    <a class="flex h-[60px] w-full min-w-[240px] items-center justify-center rounded-[9.625px] bg-black px-8 text-sm font-medium text-white ring-1 ring-white/10"
+                       href="https://apps.apple.com/app/id6744154833"
+                    >
+                        <img alt="Download on the App Store"
+                             class="max-h-[50px]"
+                             src="https://scd-s3.ams3.cdn.digitaloceanspaces.com/scd-static/assets/base/install-apple.png"
+                        />
+                    </a>
                 </div>
-                <p class="pb-8 text-center text-sm text-scd-muted">&copy; <span id="y"></span> Sport Club Digital.
-                    All
-                    rights reserved.</p>
             </div>
         </footer>
 
