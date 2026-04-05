@@ -182,6 +182,48 @@
                 filter: blur(415px);
             }
 
+            /* Единые размеры CTA на мобилке: полная ширина, один ряд, меньший кегль; с sm — как раньше */
+            .scd-btn {
+                display: inline-flex;
+                width: 100%;
+                min-width: 0;
+                align-items: center;
+                justify-content: center;
+                white-space: nowrap;
+                border-radius: 0.75rem;
+                padding: 1rem 0.75rem;
+                font-size: 0.875rem;
+                font-weight: 600;
+                line-height: 1.25rem;
+            }
+
+            @media (min-width: 380px) {
+                .scd-btn {
+                    padding-left: 1rem;
+                    padding-right: 1rem;
+                    font-size: 1rem;
+                }
+            }
+
+            @media (min-width: 640px) {
+                .scd-btn {
+                    width: auto;
+                    padding-left: 2rem;
+                    padding-right: 2rem;
+                    font-size: 1.125rem;
+                }
+            }
+
+            /* Роадмап: скролл без видимого горизонтального scrollbar */
+            #roadmap-slider {
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            #roadmap-slider::-webkit-scrollbar {
+                display: none;
+            }
+
         </style>
         <script src=".public/.public/StroyPartnerUG/sp_ug_landing/src/app/page.tsx"></script>
     </head>
@@ -198,7 +240,7 @@
                 <nav aria-label="Primary" class="hidden items-center gap-8 text-sm text-white/70 lg:flex">
                     <a class="hover:text-white" href="#problem-solution">Problem and Solution</a>
                     <a class="hover:text-white" href="#process">Process</a>
-                    <a class="hover:text-white" href="#reviews">Reviews</a>
+<!--                    <a class="hover:text-white" href="#reviews">Reviews</a>-->
                     <a class="hover:text-white" href="#economic-model">Economic Model</a>
                     <a class="hover:text-white" href="#roadmap">Upcoming Features</a>
                 </nav>
@@ -225,11 +267,11 @@
                                 <a class="rounded-lg px-3 py-2 hover:bg-white/10" href="#roadmap">
                                     Upcoming Features
                                 </a>
-                                <a class="mt-2 rounded-lg border border-scd-cyan px-3 py-2 text-center text-scd-cyan"
-                                   href="#"
-                                >
-                                    Login
-                                </a>
+<!--                                <a class="mt-2 rounded-lg border border-scd-cyan px-3 py-2 text-center text-scd-cyan"-->
+<!--                                   href="#"-->
+<!--                                >-->
+<!--                                    Login-->
+<!--                                </a>-->
                             </nav>
                         </div>
                     </details>
@@ -240,9 +282,9 @@
             <!-- Figma: Hero — фон, сетка, слоган, заголовок, CTA; вторая бегущая строка — под hero; первая — над футером -->
             <section aria-labelledby="hero-title" class="relative overflow-hidden">
                 <div class="relative mx-auto flex min-h-[min(100vh,801px)] max-w-content flex-col items-center justify-center px-4 py-16 text-center sm:px-6 lg:px-[140px] lg:py-24">
-                    <p class="mb-6 inline-flex items-center gap-2 rounded-full border border-scd-cyan2/20 bg-scd-cyan/5 px-4 py-1.5 text-sm font-medium uppercase tracking-[0.2em] text-scd-cyan2 backdrop-blur-sm">
+                    <p class="mb-6 inline-flex max-w-full items-center gap-2 rounded-full border border-scd-cyan2/20 bg-scd-cyan/5 px-2.5 py-1.5 text-[10px] font-medium uppercase tracking-[0.1em] text-scd-cyan2 backdrop-blur-sm whitespace-nowrap min-[360px]:px-3 min-[360px]:text-xs min-[360px]:tracking-[0.12em] sm:px-4 sm:text-sm sm:tracking-[0.2em]">
                         <span aria-hidden="true"
-                              class="h-2 w-2 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"
+                              class="h-2 w-2 shrink-0 rounded-full bg-scd-cyan2 shadow-[0_0_9px_rgba(54,193,231,0.9)]"
                         ></span>
                         Where Wellness Meets Innovation
                     </p>
@@ -256,11 +298,11 @@
                             SCD unifies training, nutrition, and your virtual avatar. From first steps to your own
                             digital club — grow, monetize your expertise, and inspire others.
                         </p>
-                        <a class="inline-flex items-center gap-2 rounded-xl bg-scd-cyan px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.5)] hover:bg-scd-cyan/90"
+                        <a class="scd-btn gap-2 bg-scd-cyan text-white shadow-[0_0_34px_rgba(54,193,231,0.5)] hover:bg-scd-cyan/90"
                            href="#cta"
                         >
                             Try it now
-                            <svg aria-hidden="true" class="h-4 w-4 text-white" fill="none" stroke="currentColor"
+                            <svg aria-hidden="true" class="h-4 w-4 shrink-0 text-white" fill="none" stroke="currentColor"
                                  stroke-width="2" viewBox="0 0 24 24"
                             >
                                 <path d="M13 7l5 5m0 0l-5 5m5-5H6" stroke-linecap="round" stroke-linejoin="round" />
@@ -521,7 +563,7 @@
                                     <span class="text-lg">Immersive social fitness layer</span>
                                 </li>
                             </ul>
-                            <a class="inline-flex items-center justify-center rounded-xl bg-scd-cyan px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.5)]"
+                            <a class="scd-btn bg-scd-cyan text-white shadow-[0_0_34px_rgba(54,193,231,0.5)]"
                                href="#cta"
                             >Start Training</a>
                         </div>
@@ -602,7 +644,7 @@
                                     </div>
                                 </li>
                             </ul>
-                            <a class="inline-flex items-center justify-center rounded-xl bg-scd-cyan px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.5)]"
+                            <a class="scd-btn bg-scd-cyan text-white shadow-[0_0_34px_rgba(54,193,231,0.5)]"
                                href="#cta"
                             >Become a Founding Trainer</a>
                         </div>
@@ -839,7 +881,7 @@
                                 <p class="font-semibold text-white">No hidden payments</p>
                                 <p class="mt-2">Clear receipts and predictable economics for both sides</p>
                             </div>
-                            <img alt="" class="max-h-[630px] object-contain" src="img/economic-mobile-2.png" />
+                            <img alt="" class="max-h-[630px] w-full object-contain" src="public/img/economic-mobile-2.png" />
                             <div class="w-full p-4 text-sm text-white/70">
                                 <img alt="" class="w-8 h-8 mb-4" src="public/img/economic-icon.png" />
                                 <p class="font-semibold text-white">Transparent commission</p>
@@ -864,9 +906,12 @@
                     </p>
                 </div>
 
-                <div class="flex flex-col gap-8 lg:flex-row lg:gap-10 lg:overflow-x-auto lg:pb-4" id="roadmap-slider">
+                <div class="-mx-4 sm:-mx-6 lg:mx-0">
+                    <div class="flex flex-row flex-nowrap gap-6 overflow-x-auto scroll-smooth pb-4 snap-x snap-mandatory touch-pan-x px-4 sm:px-6 lg:gap-10 lg:px-0"
+                         id="roadmap-slider"
+                    >
                     <article
-                            class="scd-card-gradient flex min-h-[500px] min-w-0 flex-col overflow-hidden rounded-[20px] border border-scd-border lg:min-w-[360px] lg:flex-1"
+                            class="scd-card-gradient flex min-h-[500px] w-[min(360px,calc(100vw-2.5rem))] shrink-0 snap-start flex-col overflow-hidden rounded-[20px] border border-scd-border lg:min-w-[360px] lg:w-auto lg:flex-1 lg:max-w-none"
                     >
                         <div class="relative h-[200px] shrink-0 sm:h-[258px]">
                             <!-- image — Web App -->
@@ -904,7 +949,7 @@
                         </div>
                     </article>
                     <article
-                            class="scd-card-gradient flex min-h-[500px] min-w-0 flex-col overflow-hidden rounded-[20px] border border-scd-border lg:min-w-[360px] lg:max-w-[460px] lg:flex-1"
+                            class="scd-card-gradient flex min-h-[500px] w-[min(360px,calc(100vw-2.5rem))] shrink-0 snap-start flex-col overflow-hidden rounded-[20px] border border-scd-border lg:min-w-[360px] lg:w-auto lg:max-w-[460px] lg:flex-1"
                     >
                         <div class="relative h-[200px] shrink-0 sm:h-[258px]">
                             <img alt="" class="absolute inset-0 h-full w-full object-cover" src="public/img/feature.png" />
@@ -941,7 +986,7 @@
                         </div>
                     </article>
                     <article
-                            class="scd-card-gradient flex min-h-[500px] min-w-0 flex-col overflow-hidden rounded-[20px] border border-scd-border lg:min-w-[360px] lg:flex-1"
+                            class="scd-card-gradient flex min-h-[500px] w-[min(360px,calc(100vw-2.5rem))] shrink-0 snap-start flex-col overflow-hidden rounded-[20px] border border-scd-border lg:min-w-[360px] lg:w-auto lg:flex-1 lg:max-w-none"
                     >
                         <div class="relative h-[200px] shrink-0 sm:h-[258px]">
                             <img alt="" class="absolute inset-0 h-full w-full object-cover" src="public/img/feature.png" />
@@ -977,29 +1022,32 @@
                             </div>
                         </div>
                     </article>
+                    </div>
                 </div>
-                <!--                <div class="mt-8 hidden justify-center gap-4 lg:flex">-->
-                <!--                    <button aria-label="Scroll roadmap left"-->
-                <!--                            class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5"-->
-                <!--                            data-scroll-roadmap="-1" type="button"-->
-                <!--                    >-->
-                <!--                        <svg class="h-6 w-6 text-scd-cyan3" fill="none" stroke="currentColor" stroke-width="2"-->
-                <!--                             viewBox="0 0 24 24"-->
-                <!--                        >-->
-                <!--                            <path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" />-->
-                <!--                        </svg>-->
-                <!--                    </button>-->
-                <!--                    <button aria-label="Scroll roadmap right"-->
-                <!--                            class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5"-->
-                <!--                            data-scroll-roadmap="1" type="button"-->
-                <!--                    >-->
-                <!--                        <svg class="h-6 w-6 text-scd-cyan3" fill="none" stroke="currentColor" stroke-width="2"-->
-                <!--                             viewBox="0 0 24 24"-->
-                <!--                        >-->
-                <!--                            <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />-->
-                <!--                        </svg>-->
-                <!--                    </button>-->
-                <!--                </div>-->
+                <div class="mt-6 flex justify-center gap-4">
+                    <button aria-label="Scroll roadmap left"
+                            class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 hover:bg-scd-cyan/10"
+                            data-scroll-roadmap="-1"
+                            type="button"
+                    >
+                        <svg class="h-6 w-6 text-scd-cyan3" fill="none" stroke="currentColor" stroke-width="2"
+                             viewBox="0 0 24 24"
+                        >
+                            <path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <button aria-label="Scroll roadmap right"
+                            class="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-scd-border bg-scd-cyan/5 hover:bg-scd-cyan/10"
+                            data-scroll-roadmap="1"
+                            type="button"
+                    >
+                        <svg class="h-6 w-6 text-scd-cyan3" fill="none" stroke="currentColor" stroke-width="2"
+                             viewBox="0 0 24 24"
+                        >
+                            <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
             </section>
         </main>
 
@@ -1126,10 +1174,10 @@
                             workout, one result, one transparent transaction at a time.
                         </p>
                         <div class="flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:gap-8">
-                            <a class="inline-flex items-center justify-center rounded-xl bg-scd-cyan px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.15)]"
+                            <a class="scd-btn bg-scd-cyan text-white shadow-[0_0_34px_rgba(54,193,231,0.15)]"
                                href="#"
                             >Start Training</a>
-                            <a class="inline-flex items-center justify-center rounded-xl border border-scd-cyan2 bg-scd-cyan/5 px-8 py-4 text-lg font-semibold text-white shadow-[0_0_34px_rgba(54,193,231,0.15)] backdrop-blur-xl"
+                            <a class="scd-btn border border-scd-cyan2 bg-scd-cyan/5 text-white shadow-[0_0_34px_rgba(54,193,231,0.15)] backdrop-blur-xl"
                                href="#"
                             >Start Coaching</a>
                         </div>
@@ -1250,10 +1298,12 @@
                 document.querySelectorAll('[data-scroll-roadmap]').forEach(function (btn) {
                     btn.addEventListener('click', function () {
                         var row = document.getElementById('roadmap-slider');
-                        if (row) row.scrollBy({
-                            left: Number(btn.getAttribute('data-scroll-roadmap')) * 320,
-                            behavior: 'smooth'
-                        });
+                        if (!row) return;
+                        var card = row.querySelector('article');
+                        var gap = 24;
+                        var step = card ? card.offsetWidth + gap : 320;
+                        var dir = Number(btn.getAttribute('data-scroll-roadmap'));
+                        row.scrollBy({ left: dir * step, behavior: 'smooth' });
                     });
                 });
             })();
