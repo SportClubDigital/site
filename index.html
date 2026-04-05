@@ -563,9 +563,9 @@
                                     <span class="text-lg">Immersive social fitness layer</span>
                                 </li>
                             </ul>
-                            <a class="scd-btn bg-scd-cyan text-white shadow-[0_0_34px_rgba(54,193,231,0.5)]"
-                               href="#cta"
-                            >Start Training</a>
+                            <a class="scd-btn scd-join-app-trigger bg-scd-cyan text-white shadow-[0_0_34px_rgba(54,193,231,0.5)]"
+                               href="https://app.sportclubdigital.com/"
+                            >Join to SCD</a>
                         </div>
                         <div class="relative flex flex-col sm:flex-row items-center justify-center gap-[26px] col-span-3">
                             <!-- Figma: image — коллаж атлета / экраны -->
@@ -1160,7 +1160,7 @@
 
         <!-- Figma: footer — колонки, соцсети, кнопки сторов, водяной знак SPORT CLUB DIGITAL -->
         <footer class="scd-header-gradient-bg relative border-t border-white/25">
-            <!-- Figma: финальный CTA — градиентный баннер, кнопки Start Training / Start Coaching -->
+            <!-- Финальный CTA — Join to SCD; на мобильном — app.sportclubdigital.com, на десктопе — модалка со сторами -->
             <section class="relative scroll-mt-[74px] py-20" id="cta">
                 <div class="relative mx-auto max-w-content px-4 sm:px-6 lg:px-[140px]">
                     <div class="mx-auto max-w-[912px] rounded-3xl px-6 py-12 text-center sm:px-10 sm:py-16">
@@ -1172,13 +1172,10 @@
                             one
                             workout, one result, one transparent transaction at a time.
                         </p>
-                        <div class="flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:gap-8">
-                            <a class="scd-btn bg-scd-cyan text-white shadow-[0_0_34px_rgba(54,193,231,0.15)]"
-                               href="#"
-                            >Start Training</a>
-                            <a class="scd-btn border border-scd-cyan2 bg-scd-cyan/5 text-white shadow-[0_0_34px_rgba(54,193,231,0.15)] backdrop-blur-xl"
-                               href="#"
-                            >Start Coaching</a>
+                        <div class="flex flex-col items-center justify-center">
+                            <a class="scd-btn scd-join-app-trigger bg-scd-cyan text-white shadow-[0_0_34px_rgba(54,193,231,0.15)] sm:w-auto"
+                               href="https://app.sportclubdigital.com/"
+                            >Join to SCD</a>
                         </div>
                     </div>
                 </div>
@@ -1244,6 +1241,55 @@
             </div>
         </footer>
 
+        <div id="scd-app-modal"
+             class="fixed inset-0 z-[200] hidden items-center justify-center p-4 sm:p-6"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="scd-app-modal-title"
+             aria-hidden="true"
+        >
+            <button type="button"
+                    class="absolute inset-0 cursor-default bg-black/65 backdrop-blur-sm"
+                    aria-label="Close dialog"
+                    data-scd-modal-backdrop
+            ></button>
+            <div class="relative z-10 w-full max-w-md rounded-2xl border border-white/15 bg-scd-bg p-6 shadow-2xl sm:p-8">
+                <button type="button"
+                        id="scd-app-modal-close"
+                        class="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-lg text-white/70 transition hover:bg-white/10 hover:text-white"
+                        aria-label="Close"
+                >
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <h2 id="scd-app-modal-title" class="pr-10 text-xl font-bold text-white sm:text-2xl">
+                    Download the app
+                </h2>
+                <p class="mt-3 text-sm leading-relaxed text-white/70 sm:text-base">
+                    Sport Club Digital is available on iOS and Android. Install on your phone to join SCD.
+                </p>
+                <div class="mt-6 flex flex-col gap-3">
+                    <a class="flex h-[52px] w-full items-center justify-center rounded-[9.625px] bg-black px-6 text-sm font-medium text-white ring-1 ring-white/10 transition hover:ring-white/20"
+                       href="https://play.google.com/store/apps/details?id=com.sportclubdigital.app"
+                    >
+                        <img alt="Get it on Google Play"
+                             class="max-h-[44px]"
+                             src="https://scd-s3.ams3.cdn.digitaloceanspaces.com/scd-static/assets/base/install-google.png"
+                        />
+                    </a>
+                    <a class="flex h-[52px] w-full items-center justify-center rounded-[9.625px] bg-black px-6 text-sm font-medium text-white ring-1 ring-white/10 transition hover:ring-white/20"
+                       href="https://apps.apple.com/app/id6744154833"
+                    >
+                        <img alt="Download on the App Store"
+                             class="max-h-[44px]"
+                             src="https://scd-s3.ams3.cdn.digitaloceanspaces.com/scd-static/assets/base/install-apple.png"
+                        />
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <script>
             (function () {
                 document.getElementById('y').textContent = new Date().getFullYear();
@@ -1304,6 +1350,56 @@
                         var dir = Number(btn.getAttribute('data-scroll-roadmap'));
                         row.scrollBy({ left: dir * step, behavior: 'smooth' });
                     });
+                });
+
+                var scdAppModal = document.getElementById('scd-app-modal');
+                var scdAppModalClose = document.getElementById('scd-app-modal-close');
+                var scdModalBackdrop = document.querySelector('[data-scd-modal-backdrop]');
+                var scdModalLastFocus = null;
+
+                function scdOpenAppModal() {
+                    if (!scdAppModal) return;
+                    scdAppModal.classList.remove('hidden');
+                    scdAppModal.classList.add('flex');
+                    scdAppModal.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                    if (scdAppModalClose) scdAppModalClose.focus();
+                }
+
+                function scdCloseAppModal() {
+                    if (!scdAppModal) return;
+                    scdAppModal.classList.add('hidden');
+                    scdAppModal.classList.remove('flex');
+                    scdAppModal.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                    if (scdModalLastFocus && typeof scdModalLastFocus.focus === 'function') {
+                        scdModalLastFocus.focus();
+                    }
+                    scdModalLastFocus = null;
+                }
+
+                document.querySelectorAll('.scd-join-app-trigger').forEach(function (el) {
+                    el.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        scdModalLastFocus = el;
+                        scdOpenAppModal();
+                    });
+                });
+
+                if (scdAppModalClose) {
+                    scdAppModalClose.addEventListener('click', function () {
+                        scdCloseAppModal();
+                    });
+                }
+                if (scdModalBackdrop) {
+                    scdModalBackdrop.addEventListener('click', function () {
+                        scdCloseAppModal();
+                    });
+                }
+
+                document.addEventListener('keydown', function (e) {
+                    if (e.key !== 'Escape' || !scdAppModal || scdAppModal.classList.contains('hidden')) return;
+                    scdCloseAppModal();
                 });
             })();
         </script>
